@@ -33,5 +33,25 @@ namespace Novotel
         {
             makeBooking11.BringToFront();
         }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void roomsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            roomsUC1.BringToFront();
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void contactsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Hello", "test", MessageBoxButtons.OK);
+        }
     }
 }

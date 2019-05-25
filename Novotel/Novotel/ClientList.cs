@@ -28,6 +28,9 @@ namespace Novotel
             clientBindingSource.DataSource = this.hotelDbDataSet.client;
 
             groupBoxPerson.Enabled = false;
+
+            dataGridViewClients.MultiSelect = false;
+
             dataGridViewClients.DataError += DataGridView1_DataError;
         }
 
@@ -41,7 +44,7 @@ namespace Novotel
         //DataGridView Error handler
         private void DataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs anError)
         {
-            MessageBox.Show("Error happened ");
+            //MessageBox.Show("Error happened " );
         }
 
 
@@ -113,6 +116,11 @@ namespace Novotel
         //find clients 
         private void textBoxSearch_TextChanged(object sender, EventArgs e)
         {
+            //without this rises error ...
+            dataGridViewClients.ClearSelection();
+            dataGridViewClients.Update();
+            //dataGridViewClients.se
+
             if (string.IsNullOrEmpty(textBoxSearch.Text))
             {
                 this.clientTableAdapter.Fill(this.hotelDbDataSet.client);
@@ -122,8 +130,8 @@ namespace Novotel
             else
             {
                 var query = from o in this.hotelDbDataSet.client
-                            where o.firstname.ToString().Contains(textBoxSearch.Text)
-                            || o.lastname.ToString().Contains(textBoxSearch.Text)
+                            where o.firstname.ToString().ToLower().Contains(textBoxSearch.Text.ToLower())
+                            || o.lastname.ToString().ToLower().Contains(textBoxSearch.Text.ToLower())
                             || o.PC.ToString().Contains(textBoxSearch.Text)
                             select o;
 
@@ -207,6 +215,8 @@ namespace Novotel
         //create context menu
         private void dataGridViewClients_MouseClick(object sender, MouseEventArgs e)
         {
+            //TODO : select cell 
+
             if (e.Button == MouseButtons.Right)
             {
                 

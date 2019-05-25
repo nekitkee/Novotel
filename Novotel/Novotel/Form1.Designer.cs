@@ -40,6 +40,8 @@
             this.contactsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.makeBooking11 = new Novotel.MakeBooking1();
             this.clientList1 = new Novotel.ClientList();
+            this.apartamentTableAdapter1 = new Novotel.HotelDbDataSetTableAdapters.apartamentTableAdapter();
+            this.roomsUC1 = new Novotel.RoomsUC();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,6 +61,7 @@
             this.menuStrip1.Size = new System.Drawing.Size(1320, 33);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // toolStripClient
             // 
@@ -71,7 +74,7 @@
             // clientListToolStripMenuItem
             // 
             this.clientListToolStripMenuItem.Name = "clientListToolStripMenuItem";
-            this.clientListToolStripMenuItem.Size = new System.Drawing.Size(210, 30);
+            this.clientListToolStripMenuItem.Size = new System.Drawing.Size(164, 30);
             this.clientListToolStripMenuItem.Text = "client list";
             this.clientListToolStripMenuItem.Click += new System.EventHandler(this.clientListToolStripMenuItem_Click);
             // 
@@ -87,6 +90,7 @@
             this.roomsToolStripMenuItem.Name = "roomsToolStripMenuItem";
             this.roomsToolStripMenuItem.Size = new System.Drawing.Size(80, 29);
             this.roomsToolStripMenuItem.Text = "Rooms";
+            this.roomsToolStripMenuItem.Click += new System.EventHandler(this.roomsToolStripMenuItem_Click);
             // 
             // keysToolStripMenuItem
             // 
@@ -112,14 +116,15 @@
             // manualToolStripMenuItem
             // 
             this.manualToolStripMenuItem.Name = "manualToolStripMenuItem";
-            this.manualToolStripMenuItem.Size = new System.Drawing.Size(162, 30);
+            this.manualToolStripMenuItem.Size = new System.Drawing.Size(210, 30);
             this.manualToolStripMenuItem.Text = "manual";
             // 
             // contactsToolStripMenuItem
             // 
             this.contactsToolStripMenuItem.Name = "contactsToolStripMenuItem";
-            this.contactsToolStripMenuItem.Size = new System.Drawing.Size(162, 30);
+            this.contactsToolStripMenuItem.Size = new System.Drawing.Size(210, 30);
             this.contactsToolStripMenuItem.Text = "contacts";
+            this.contactsToolStripMenuItem.Click += new System.EventHandler(this.contactsToolStripMenuItem_Click);
             // 
             // makeBooking11
             // 
@@ -136,12 +141,25 @@
             this.clientList1.Size = new System.Drawing.Size(1320, 660);
             this.clientList1.TabIndex = 1;
             // 
+            // apartamentTableAdapter1
+            // 
+            this.apartamentTableAdapter1.ClearBeforeFill = true;
+            // 
+            // roomsUC1
+            // 
+            this.roomsUC1.BackColor = System.Drawing.SystemColors.Control;
+            this.roomsUC1.Location = new System.Drawing.Point(1, 43);
+            this.roomsUC1.Name = "roomsUC1";
+            this.roomsUC1.Size = new System.Drawing.Size(1320, 660);
+            this.roomsUC1.TabIndex = 3;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(1320, 702);
+            this.Controls.Add(this.roomsUC1);
             this.Controls.Add(this.clientList1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.makeBooking11);
@@ -150,6 +168,7 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Novotel";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -171,6 +190,8 @@
         private System.Windows.Forms.ToolStripMenuItem contactsToolStripMenuItem;
         private ClientList clientList1;
         private MakeBooking1 makeBooking11;
+        private HotelDbDataSetTableAdapters.apartamentTableAdapter apartamentTableAdapter1;
+        private RoomsUC roomsUC1;
     }
 }
 

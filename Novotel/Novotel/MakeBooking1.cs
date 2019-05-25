@@ -30,7 +30,7 @@ namespace Novotel
         public bool AddClientToBooking(string personalCode)
         {
             dataGridView1.Rows.Add(personalCode, "");
-            //
+            //TODO count max
             return true;
         }
 
