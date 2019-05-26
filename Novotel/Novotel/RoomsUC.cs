@@ -19,7 +19,7 @@ namespace Novotel
 
         private void RoomsUC_Load(object sender, EventArgs e)
         {
-            
+            //fill tables
             this.classTableAdapter.Fill(this.hotelDbDataSet._class);
             classBindingSource.DataSource = this.hotelDbDataSet._class;
 
@@ -29,27 +29,38 @@ namespace Novotel
             //hide start empty column on DataGridView
             dataGridViewAparts.RowHeadersVisible = false;
             dataGridViewClasses.RowHeadersVisible = false;
+            //disable multiselect
+            dataGridViewAparts.MultiSelect = false;
+            dataGridViewClasses.MultiSelect = false;
+
 
             MakeEditingGroupboxesEnabled(false);
-
-
-
-            comboBoxClass.DataSource = classTableAdapter.GetAllClassesId();
-            comboBoxClass.DisplayMember = "id";
+            UpdateComboboxClass();
 
         }
 
+        //update combobox
+        void UpdateComboboxClass()
+        {
+            comboBoxClass.DataSource = classTableAdapter.GetAllClassesId();
+            comboBoxClass.DisplayMember = "id";
+        }
+
+
+        //disable / enable textboxes 
         void MakeEditingGroupboxesEnabled(bool enable)
         {
             groupBoxAddApart.Enabled = enable;
             groupBoxAddClass.Enabled = enable;
         }
 
+        //edit
         private void buttonEdit_Click(object sender, EventArgs e)
         {
             MakeEditingGroupboxesEnabled(true);
         }
 
+        //insert apartament
         private void buttonAddApart_Click(object sender, EventArgs e)
         {
             try
@@ -62,45 +73,93 @@ namespace Novotel
            catch(Exception ex) { }
         }
 
+        //cancel
         private void buttonCancell_Click(object sender, EventArgs e)
         {
             MakeEditingGroupboxesEnabled(false);
         }
 
+        //insert class
         private void buttonAddClass_Click(object sender, EventArgs e)
         {
-            string id = textBox_addclass_class.Text;
-            int places = int.Parse(textBox_addclass_places.Text);
-            int rooms = int.Parse(textBox_addclass_rooms.Text);
-            decimal price = decimal.Parse(textBox_addclass_price.Text);
+            try
+            {
+                string id = textBox_class_class.Text;
+                int places = int.Parse(textBox_class_places.Text);
+                int rooms = int.Parse(textBox_class_rooms.Text);
+                decimal price = decimal.Parse(textBox_class_price.Text);
 
-            classTableAdapter.Insert(id, places, rooms, price);
-            this.classTableAdapter.Fill(this.hotelDbDataSet._class);
+                classTableAdapter.Insert(id, places, rooms, price);
+                this.classTableAdapter.Fill(this.hotelDbDataSet._class);
 
-            //TODO ADD CLASS
-            MakeEditingGroupboxesEnabled(false);
+                UpdateComboboxClass();
+                MakeEditingGroupboxesEnabled(false);
+            }
+            catch (Exception ex) { MessageBox.Show("Error"); }
         }
 
+        //update class
         private void buttonClassUpdate_Click(object sender, EventArgs e)
         {
            try
            {
-                string id = textBox_addclass_class.Text;
-                int places = int.Parse(textBox_addclass_places.Text);
-                int rooms = int.Parse(textBox_addclass_rooms.Text);
-                decimal price = decimal.Parse(textBox_addclass_price.Text);
+                string id = textBox_class_class.Text;
+                int places = int.Parse(textBox_class_places.Text);
+                int rooms = int.Parse(textBox_class_rooms.Text);
+                decimal price = decimal.Parse(textBox_class_price.Text);
 
-            classTableAdapter.UpdateQuery(id, places, rooms, price, id);
-            
+                classTableAdapter.UpdateQuery(id, places, rooms, price, id);
 
-            this.classTableAdapter.Fill(this.hotelDbDataSet._class);
-            
-                
-                //this.apartamentTableAdapter.Fill(this.hotelDbDataSet.apartament);
-
+              
+                this.classTableAdapter.Fill(this.hotelDbDataSet._class);
+                MakeEditingGroupboxesEnabled(false);
 
             }
-            catch(Exception ex) { }
+            catch(Exception ex) { MessageBox.Show("Error"); }
+        }
+
+        //update apartament
+        private void buttonUpdateApart_Click(object sender, EventArgs e)
+        {
+            //TODO UPDATE
+            try
+            {
+                this.apartamentTableAdapter.UpdateQuery(int.Parse(textBoxApart.Text), comboBoxClass.Text, int.Parse(textBoxApart.Text));
+                this.apartamentTableAdapter.Fill(this.hotelDbDataSet.apartament);
+                MakeEditingGroupboxesEnabled(false);
+            }
+            catch (Exception ex) { MessageBox.Show("Error"); }
+        }
+
+        //on apartament DataGridView cell enter 
+        private void dataGridViewAparts_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+
+                
+                DataGridViewCellCollection CellCol = dataGridViewAparts.CurrentRow.Cells;
+                textBoxApart.Text = CellCol[0].Value.ToString();
+                comboBoxClass.Text= CellCol[1].Value.ToString();
+
+               
+            
+
+            }
+            catch (Exception ex) { }
+        }
+
+        ////on class DataGridView cell enter 
+        private void dataGridViewClasses_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                DataGridViewCellCollection CellCol = dataGridViewAparts.CurrentRow.Cells;
+                textBox_class_class.Text = CellCol[0].Value.ToString();
+                textBox_class_places.Text = CellCol[1].Value.ToString();
+                textBox_class_price.Text = CellCol[2].Value.ToString();
+                textBox_class_rooms.Text = CellCol[3].Value.ToString();
+            }catch(Exception ex) { }
         }
     }
 }

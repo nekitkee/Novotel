@@ -254,7 +254,7 @@ namespace Novotel
             }
             else
             {
-                labelClientAddResult.Text = "Errpr/Booking list is full";
+                labelClientAddResult.Text = "Error/Booking list is full";
                 labelClientAddResult.ForeColor = Color.Red;
             }
 

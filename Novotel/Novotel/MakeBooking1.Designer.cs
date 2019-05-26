@@ -45,17 +45,19 @@
             this.label5 = new System.Windows.Forms.Label();
             this.textBoxPrice = new System.Windows.Forms.TextBox();
             this.makeBooking = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewList = new System.Windows.Forms.DataGridView();
             this.PC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Key = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonVerify = new System.Windows.Forms.Button();
             this.classTableAdapter = new Novotel.HotelDbDataSetTableAdapters.classTableAdapter();
             this.apartamentTableAdapter = new Novotel.HotelDbDataSetTableAdapters.apartamentTableAdapter();
+            this.bookingTableAdapter1 = new Novotel.HotelDbDataSetTableAdapters.bookingTableAdapter();
+            this.clientBookingTableAdapter1 = new Novotel.HotelDbDataSetTableAdapters.clientBookingTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFreeApart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.classBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelDbDataSet)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewList)).BeginInit();
             this.SuspendLayout();
             // 
             // dateFrom
@@ -197,20 +199,21 @@
             this.makeBooking.TabIndex = 7;
             this.makeBooking.Text = "make booking";
             this.makeBooking.UseVisualStyleBackColor = true;
+            this.makeBooking.Click += new System.EventHandler(this.makeBooking_Click);
             // 
-            // dataGridView1
+            // dataGridViewList
             // 
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.PC,
             this.Key});
-            this.dataGridView1.Location = new System.Drawing.Point(49, 165);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(745, 375);
-            this.dataGridView1.TabIndex = 8;
+            this.dataGridViewList.Location = new System.Drawing.Point(49, 165);
+            this.dataGridViewList.Name = "dataGridViewList";
+            this.dataGridViewList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dataGridViewList.RowTemplate.Height = 28;
+            this.dataGridViewList.Size = new System.Drawing.Size(745, 375);
+            this.dataGridViewList.TabIndex = 8;
             // 
             // PC
             // 
@@ -239,12 +242,20 @@
             // 
             this.apartamentTableAdapter.ClearBeforeFill = true;
             // 
+            // bookingTableAdapter1
+            // 
+            this.bookingTableAdapter1.ClearBeforeFill = true;
+            // 
+            // clientBookingTableAdapter1
+            // 
+            this.clientBookingTableAdapter1.ClearBeforeFill = true;
+            // 
             // MakeBooking1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.buttonVerify);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridViewList);
             this.Controls.Add(this.makeBooking);
             this.Controls.Add(this.textBoxPrice);
             this.Controls.Add(this.textBoxRoom);
@@ -260,7 +271,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.hotelDbDataSet)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -282,7 +293,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBoxPrice;
         private System.Windows.Forms.Button makeBooking;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridViewList;
         private System.Windows.Forms.DataGridViewTextBoxColumn PC;
         private System.Windows.Forms.DataGridViewTextBoxColumn Key;
         private System.Windows.Forms.Button buttonVerify;
@@ -290,5 +301,7 @@
         private HotelDbDataSet hotelDbDataSet;
         private HotelDbDataSetTableAdapters.classTableAdapter classTableAdapter;
         private HotelDbDataSetTableAdapters.apartamentTableAdapter apartamentTableAdapter;
+        private HotelDbDataSetTableAdapters.bookingTableAdapter bookingTableAdapter1;
+        private HotelDbDataSetTableAdapters.clientBookingTableAdapter clientBookingTableAdapter1;
     }
 }

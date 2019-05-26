@@ -65,6 +65,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>HotelDbDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="KeysUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="KeysUC.Designer.cs">
+      <DependentUpon>KeysUC.cs</DependentUpon>
+    </Compile>
     <Compile Include="MakeBooking1.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -79,17 +85,14 @@
     <Compile Include="RoomsUC.Designer.cs">
       <DependentUpon>RoomsUC.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControl1.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControl1.Designer.cs">
-      <DependentUpon>UserControl1.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="ClientList.resx">
       <DependentUpon>ClientList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KeysUC.resx">
+      <DependentUpon>KeysUC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MakeBooking1.resx">
       <DependentUpon>MakeBooking1.cs</DependentUpon>
@@ -105,9 +108,6 @@
     </Compile>
     <EmbeddedResource Include="RoomsUC.resx">
       <DependentUpon>RoomsUC.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControl1.resx">
-      <DependentUpon>UserControl1.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="HotelDbDataSet.xsc">
       <DependentUpon>HotelDbDataSet.xsd</DependentUpon>

@@ -53,5 +53,10 @@ namespace Novotel
         {
             MessageBox.Show("Hello", "test", MessageBoxButtons.OK);
         }
+
+        private void openclosedToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

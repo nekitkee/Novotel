@@ -29,7 +29,7 @@ namespace Novotel
 
         public bool AddClientToBooking(string personalCode)
         {
-            dataGridView1.Rows.Add(personalCode, "");
+            dataGridViewList.Rows.Add(personalCode, "");
             //TODO count max
             return true;
         }
@@ -91,6 +91,41 @@ namespace Novotel
         private void dateFrom_ValueChanged(object sender, EventArgs e)
         {
             CountPrice();
+        }
+
+
+        //MAKE BOOKING
+        private void makeBooking_Click(object sender, EventArgs e)
+        {
+
+            //try
+            //{
+                //TODO if verified
+
+                bookingTableAdapter1.Insert(dateFrom.Value, dateTo.Value,
+                    Decimal.Parse(textBoxPrice.Text), int.Parse(textBoxRoom.Text));
+
+                int? lastid = bookingTableAdapter1.LastId();
+
+           
+
+                for (int i = 0; i < dataGridViewList.Rows.Count - 1; i++) { 
+                    clientBookingTableAdapter1.Insert(
+                        dataGridViewList.Rows[i].Cells[0].Value.ToString(), //pc 
+                        lastid.Value, //booking id
+                        dataGridViewList.Rows[i].Cells[1].Value.ToString()); //key
+                }
+
+                //TODO UPDATE KEYS
+
+                //if succesful 
+
+                dataGridViewList.Rows.Clear();
+
+                //else error
+
+           // }catch(Exception ex) { }
+
         }
     }
 }

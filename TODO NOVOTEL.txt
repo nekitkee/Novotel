@@ -1,0 +1,27 @@
+TODO:
+
+1.Add icons to buttons , and make icon for project.
+
+2.make statistic SQL quaries.
+
+3.make new thread for pushup msg when adding to booking list.
+
+4.count max places when adding to booking list. 
+
+5.verifing pc and keys on MakebookingUC
+
+### 7.make UC for keys (list , update , deactivate , )
+
+8.make UC for room history (open/closed)
+
+10.make UC for editing bookings
+
+11.setup form
+
+12. handle all exception
+
+DONE:
+
+9.On click cell fill textboxes in RoomsUC
+
+6.add new booking to db

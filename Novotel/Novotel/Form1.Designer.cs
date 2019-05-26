@@ -33,6 +33,8 @@
             this.clientListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bookingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.roomsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.apartamnetsListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openclosedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.keysToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statisticToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -87,10 +89,26 @@
             // 
             // roomsToolStripMenuItem
             // 
+            this.roomsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.apartamnetsListToolStripMenuItem,
+            this.openclosedToolStripMenuItem});
             this.roomsToolStripMenuItem.Name = "roomsToolStripMenuItem";
             this.roomsToolStripMenuItem.Size = new System.Drawing.Size(80, 29);
             this.roomsToolStripMenuItem.Text = "Rooms";
             this.roomsToolStripMenuItem.Click += new System.EventHandler(this.roomsToolStripMenuItem_Click);
+            // 
+            // apartamnetsListToolStripMenuItem
+            // 
+            this.apartamnetsListToolStripMenuItem.Name = "apartamnetsListToolStripMenuItem";
+            this.apartamnetsListToolStripMenuItem.Size = new System.Drawing.Size(195, 30);
+            this.apartamnetsListToolStripMenuItem.Text = "List";
+            // 
+            // openclosedToolStripMenuItem
+            // 
+            this.openclosedToolStripMenuItem.Name = "openclosedToolStripMenuItem";
+            this.openclosedToolStripMenuItem.Size = new System.Drawing.Size(195, 30);
+            this.openclosedToolStripMenuItem.Text = "open/closed";
+            this.openclosedToolStripMenuItem.Click += new System.EventHandler(this.openclosedToolStripMenuItem_Click);
             // 
             // keysToolStripMenuItem
             // 
@@ -116,13 +134,13 @@
             // manualToolStripMenuItem
             // 
             this.manualToolStripMenuItem.Name = "manualToolStripMenuItem";
-            this.manualToolStripMenuItem.Size = new System.Drawing.Size(210, 30);
+            this.manualToolStripMenuItem.Size = new System.Drawing.Size(162, 30);
             this.manualToolStripMenuItem.Text = "manual";
             // 
             // contactsToolStripMenuItem
             // 
             this.contactsToolStripMenuItem.Name = "contactsToolStripMenuItem";
-            this.contactsToolStripMenuItem.Size = new System.Drawing.Size(210, 30);
+            this.contactsToolStripMenuItem.Size = new System.Drawing.Size(162, 30);
             this.contactsToolStripMenuItem.Text = "contacts";
             this.contactsToolStripMenuItem.Click += new System.EventHandler(this.contactsToolStripMenuItem_Click);
             // 
@@ -192,6 +210,8 @@
         private MakeBooking1 makeBooking11;
         private HotelDbDataSetTableAdapters.apartamentTableAdapter apartamentTableAdapter1;
         private RoomsUC roomsUC1;
+        private System.Windows.Forms.ToolStripMenuItem apartamnetsListToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openclosedToolStripMenuItem;
     }
 }
 
