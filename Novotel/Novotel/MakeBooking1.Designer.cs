@@ -53,6 +53,7 @@
             this.apartamentTableAdapter = new Novotel.HotelDbDataSetTableAdapters.apartamentTableAdapter();
             this.bookingTableAdapter1 = new Novotel.HotelDbDataSetTableAdapters.bookingTableAdapter();
             this.clientBookingTableAdapter1 = new Novotel.HotelDbDataSetTableAdapters.clientBookingTableAdapter();
+            this.keyTableAdapter1 = new Novotel.HotelDbDataSetTableAdapters.keyTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFreeApart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.classBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelDbDataSet)).BeginInit();
@@ -93,6 +94,7 @@
             this.dataGridViewFreeApart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewFreeApart.Location = new System.Drawing.Point(852, 165);
             this.dataGridViewFreeApart.Name = "dataGridViewFreeApart";
+            this.dataGridViewFreeApart.RowHeadersVisible = false;
             this.dataGridViewFreeApart.RowTemplate.Height = 28;
             this.dataGridViewFreeApart.Size = new System.Drawing.Size(163, 375);
             this.dataGridViewFreeApart.TabIndex = 2;
@@ -210,6 +212,7 @@
             this.Key});
             this.dataGridViewList.Location = new System.Drawing.Point(49, 165);
             this.dataGridViewList.Name = "dataGridViewList";
+            this.dataGridViewList.RowHeadersVisible = false;
             this.dataGridViewList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridViewList.RowTemplate.Height = 28;
             this.dataGridViewList.Size = new System.Drawing.Size(745, 375);
@@ -249,6 +252,10 @@
             // clientBookingTableAdapter1
             // 
             this.clientBookingTableAdapter1.ClearBeforeFill = true;
+            // 
+            // keyTableAdapter1
+            // 
+            this.keyTableAdapter1.ClearBeforeFill = true;
             // 
             // MakeBooking1
             // 
@@ -303,5 +310,6 @@
         private HotelDbDataSetTableAdapters.apartamentTableAdapter apartamentTableAdapter;
         private HotelDbDataSetTableAdapters.bookingTableAdapter bookingTableAdapter1;
         private HotelDbDataSetTableAdapters.clientBookingTableAdapter clientBookingTableAdapter1;
+        private HotelDbDataSetTableAdapters.keyTableAdapter keyTableAdapter1;
     }
 }

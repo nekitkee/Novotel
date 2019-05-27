@@ -24,6 +24,8 @@ namespace Novotel
             comboBoxClass.DataSource = classTableAdapter.GetAllClassesId();
             comboBoxClass.DisplayMember = "id";
             
+            dateTo.Value = dateTo.Value.AddDays(1);
+            
             
         }
 
@@ -98,25 +100,34 @@ namespace Novotel
         private void makeBooking_Click(object sender, EventArgs e)
         {
 
-            //try
-            //{
-                //TODO if verified
+            try
+            {
+            //TODO if verified (key exist , pc exisr , apartamnet is empty)
+
+                int apartament = int.Parse(textBoxRoom.Text);
 
                 bookingTableAdapter1.Insert(dateFrom.Value, dateTo.Value,
-                    Decimal.Parse(textBoxPrice.Text), int.Parse(textBoxRoom.Text));
+                    Decimal.Parse(textBoxPrice.Text), apartament );
 
                 int? lastid = bookingTableAdapter1.LastId();
 
            
 
-                for (int i = 0; i < dataGridViewList.Rows.Count - 1; i++) { 
+                for (int i = 0; i < dataGridViewList.Rows.Count - 1; i++) {
+
+                if (dataGridViewList.Rows[i].Cells[0].Value == null)
+                    continue;
+
                     clientBookingTableAdapter1.Insert(
                         dataGridViewList.Rows[i].Cells[0].Value.ToString(), //pc 
                         lastid.Value, //booking id
                         dataGridViewList.Rows[i].Cells[1].Value.ToString()); //key
+
+                keyTableAdapter1.UpdateQuery(apartament, true, dataGridViewList.Rows[i].Cells[1].Value.ToString());
+
                 }
 
-                //TODO UPDATE KEYS
+               
 
                 //if succesful 
 
@@ -124,7 +135,7 @@ namespace Novotel
 
                 //else error
 
-           // }catch(Exception ex) { }
+           }catch(Exception ex) { }
 
         }
     }

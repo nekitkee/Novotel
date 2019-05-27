@@ -31,7 +31,10 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripClient = new System.Windows.Forms.ToolStripMenuItem();
             this.clientListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clientHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bookingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.makeBookingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bookingListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.roomsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.apartamnetsListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openclosedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,6 +47,8 @@
             this.clientList1 = new Novotel.ClientList();
             this.apartamentTableAdapter1 = new Novotel.HotelDbDataSetTableAdapters.apartamentTableAdapter();
             this.roomsUC1 = new Novotel.RoomsUC();
+            this.keysUC1 = new Novotel.KeysUC();
+            this.bookingList1 = new Novotel.BookingList();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,7 +73,8 @@
             // toolStripClient
             // 
             this.toolStripClient.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.clientListToolStripMenuItem});
+            this.clientListToolStripMenuItem,
+            this.clientHistoryToolStripMenuItem});
             this.toolStripClient.Name = "toolStripClient";
             this.toolStripClient.Size = new System.Drawing.Size(76, 29);
             this.toolStripClient.Text = "Clients";
@@ -76,16 +82,38 @@
             // clientListToolStripMenuItem
             // 
             this.clientListToolStripMenuItem.Name = "clientListToolStripMenuItem";
-            this.clientListToolStripMenuItem.Size = new System.Drawing.Size(164, 30);
-            this.clientListToolStripMenuItem.Text = "client list";
+            this.clientListToolStripMenuItem.Size = new System.Drawing.Size(199, 30);
+            this.clientListToolStripMenuItem.Text = "Client list";
             this.clientListToolStripMenuItem.Click += new System.EventHandler(this.clientListToolStripMenuItem_Click);
+            // 
+            // clientHistoryToolStripMenuItem
+            // 
+            this.clientHistoryToolStripMenuItem.Name = "clientHistoryToolStripMenuItem";
+            this.clientHistoryToolStripMenuItem.Size = new System.Drawing.Size(199, 30);
+            this.clientHistoryToolStripMenuItem.Text = "Client history";
             // 
             // bookingToolStripMenuItem
             // 
+            this.bookingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.makeBookingToolStripMenuItem,
+            this.bookingListToolStripMenuItem});
             this.bookingToolStripMenuItem.Name = "bookingToolStripMenuItem";
             this.bookingToolStripMenuItem.Size = new System.Drawing.Size(90, 29);
             this.bookingToolStripMenuItem.Text = "Booking";
-            this.bookingToolStripMenuItem.Click += new System.EventHandler(this.bookingToolStripMenuItem_Click);
+            // 
+            // makeBookingToolStripMenuItem
+            // 
+            this.makeBookingToolStripMenuItem.Name = "makeBookingToolStripMenuItem";
+            this.makeBookingToolStripMenuItem.Size = new System.Drawing.Size(211, 30);
+            this.makeBookingToolStripMenuItem.Text = "Make booking";
+            this.makeBookingToolStripMenuItem.Click += new System.EventHandler(this.makeBookingToolStripMenuItem_Click_1);
+            // 
+            // bookingListToolStripMenuItem
+            // 
+            this.bookingListToolStripMenuItem.Name = "bookingListToolStripMenuItem";
+            this.bookingListToolStripMenuItem.Size = new System.Drawing.Size(211, 30);
+            this.bookingListToolStripMenuItem.Text = "Booking list";
+            this.bookingListToolStripMenuItem.Click += new System.EventHandler(this.bookingListToolStripMenuItem_Click);
             // 
             // roomsToolStripMenuItem
             // 
@@ -95,13 +123,13 @@
             this.roomsToolStripMenuItem.Name = "roomsToolStripMenuItem";
             this.roomsToolStripMenuItem.Size = new System.Drawing.Size(80, 29);
             this.roomsToolStripMenuItem.Text = "Rooms";
-            this.roomsToolStripMenuItem.Click += new System.EventHandler(this.roomsToolStripMenuItem_Click);
             // 
             // apartamnetsListToolStripMenuItem
             // 
             this.apartamnetsListToolStripMenuItem.Name = "apartamnetsListToolStripMenuItem";
             this.apartamnetsListToolStripMenuItem.Size = new System.Drawing.Size(195, 30);
             this.apartamnetsListToolStripMenuItem.Text = "List";
+            this.apartamnetsListToolStripMenuItem.Click += new System.EventHandler(this.apartamnetsListToolStripMenuItem_Click);
             // 
             // openclosedToolStripMenuItem
             // 
@@ -115,6 +143,7 @@
             this.keysToolStripMenuItem.Name = "keysToolStripMenuItem";
             this.keysToolStripMenuItem.Size = new System.Drawing.Size(60, 29);
             this.keysToolStripMenuItem.Text = "Keys";
+            this.keysToolStripMenuItem.Click += new System.EventHandler(this.keysToolStripMenuItem_Click);
             // 
             // statisticToolStripMenuItem
             // 
@@ -150,7 +179,6 @@
             this.makeBooking11.Name = "makeBooking11";
             this.makeBooking11.Size = new System.Drawing.Size(1320, 660);
             this.makeBooking11.TabIndex = 2;
-            this.makeBooking11.Load += new System.EventHandler(this.makeBooking11_Load);
             // 
             // clientList1
             // 
@@ -171,16 +199,32 @@
             this.roomsUC1.Size = new System.Drawing.Size(1320, 660);
             this.roomsUC1.TabIndex = 3;
             // 
+            // keysUC1
+            // 
+            this.keysUC1.Location = new System.Drawing.Point(1, 42);
+            this.keysUC1.Name = "keysUC1";
+            this.keysUC1.Size = new System.Drawing.Size(1320, 660);
+            this.keysUC1.TabIndex = 4;
+            // 
+            // bookingList1
+            // 
+            this.bookingList1.Location = new System.Drawing.Point(1, 43);
+            this.bookingList1.Name = "bookingList1";
+            this.bookingList1.Size = new System.Drawing.Size(1320, 660);
+            this.bookingList1.TabIndex = 5;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(1320, 702);
-            this.Controls.Add(this.roomsUC1);
-            this.Controls.Add(this.clientList1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.makeBooking11);
+            this.Controls.Add(this.bookingList1);
+            this.Controls.Add(this.keysUC1);
+            this.Controls.Add(this.roomsUC1);
+            this.Controls.Add(this.clientList1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
@@ -212,6 +256,11 @@
         private RoomsUC roomsUC1;
         private System.Windows.Forms.ToolStripMenuItem apartamnetsListToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openclosedToolStripMenuItem;
+        private KeysUC keysUC1;
+        private System.Windows.Forms.ToolStripMenuItem makeBookingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bookingListToolStripMenuItem;
+        private BookingList bookingList1;
+        private System.Windows.Forms.ToolStripMenuItem clientHistoryToolStripMenuItem;
     }
 }
 

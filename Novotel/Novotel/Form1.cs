@@ -24,25 +24,13 @@ namespace Novotel
             clientList1.BringToFront();
         }
 
-        private void makeBooking11_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bookingToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            makeBooking11.BringToFront();
-        }
+        
 
         private void MainForm_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void roomsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            roomsUC1.BringToFront();
-        }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
@@ -56,7 +44,33 @@ namespace Novotel
 
         private void openclosedToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //TODO
+        }
 
+        private void keysToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            keysUC1.BringToFront();
+        }
+
+        private void listAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bookingList1.BringToFront();
+        }
+
+
+        private void apartamnetsListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            roomsUC1.BringToFront();
+        }
+
+        private void makeBookingToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            makeBooking11.BringToFront();
+        }
+
+        private void bookingListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bookingList1.BringToFront();
         }
     }
 }

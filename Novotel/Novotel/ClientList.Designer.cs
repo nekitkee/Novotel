@@ -219,6 +219,7 @@
             this.dataGridViewClients.Location = new System.Drawing.Point(524, 126);
             this.dataGridViewClients.Name = "dataGridViewClients";
             this.dataGridViewClients.ReadOnly = true;
+            this.dataGridViewClients.RowHeadersVisible = false;
             this.dataGridViewClients.RowTemplate.Height = 28;
             this.dataGridViewClients.Size = new System.Drawing.Size(765, 494);
             this.dataGridViewClients.TabIndex = 1;

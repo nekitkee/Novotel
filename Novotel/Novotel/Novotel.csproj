@@ -45,6 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BookingList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BookingList.Designer.cs">
+      <DependentUpon>BookingList.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClientList.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -85,6 +91,9 @@
     <Compile Include="RoomsUC.Designer.cs">
       <DependentUpon>RoomsUC.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BookingList.resx">
+      <DependentUpon>BookingList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ClientList.resx">
       <DependentUpon>ClientList.cs</DependentUpon>
     </EmbeddedResource>

@@ -25,7 +25,11 @@ namespace Novotel
             this.keyTableAdapter.Fill(this.hotelDbDataSet.key);
             keyBindingSource.DataSource = this.hotelDbDataSet.key;
 
+
+            //setup controls properties
             groupboxKey.Enabled = false;
+            dataGridViewKeys.RowHeadersVisible = false;
+            dataGridViewKeys.MultiSelect = false;
         }
 
         //vars
@@ -91,15 +95,57 @@ namespace Novotel
         {
             try
             {
+               
 
-                DataGridViewCellCollection CellCol = dataGridViewKeys.CurrentRow.Cells;
-                textBoxKeyId.Text = CellCol[0].Value.ToString();
-                textBoxApartamnetId.Text = CellCol[1].Value.ToString();
-                checkBoxActive.Checked = (bool)CellCol[2].Value;
+                    DataGridViewCellCollection CellCol = dataGridViewKeys.CurrentRow.Cells;
+                    textBoxKeyId.Text = CellCol[0].Value.ToString();
+                    textBoxApartamnetId.Text = CellCol[1].Value.ToString();
+                    checkBoxActive.Checked = (bool)CellCol[2].Value;
+     
             }
+            
             catch (Exception ex) { }
+            
         }
 
-       
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            groupboxKey.Enabled = false;
+        }
+
+
+        ///search 
+        private void textBoxSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(textBoxSearch.Text))
+            {
+                this.keyTableAdapter.Fill(this.hotelDbDataSet.key);
+                keyBindingSource.DataSource = this.hotelDbDataSet.key;
+
+            }
+            else
+            {
+                var query = from o in this.hotelDbDataSet.key
+                            where o.id.ToString().ToLower().Contains(textBoxSearch.Text.ToLower())
+                            || o.apartament_id.ToString().ToLower().Contains(textBoxSearch.Text.ToLower())
+                            select o;
+
+                keyBindingSource.DataSource = query.ToList();
+
+            }
+        }
+
+        //search all
+        private void buttonAll_Click(object sender, EventArgs e)
+        {
+            this.keyTableAdapter.Fill(this.hotelDbDataSet.key);
+            keyBindingSource.DataSource = this.hotelDbDataSet.key;
+        }
+
+        //handl error (leave it empty)
+        private void dataGridViewKeys_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+
+        }
     }
 }

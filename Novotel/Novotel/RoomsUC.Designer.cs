@@ -30,12 +30,22 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridViewAparts = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.classidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apartamentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.hotelDbDataSet = new Novotel.HotelDbDataSet();
             this.dataGridViewClasses = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.placesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.roomsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.classBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBoxAparts = new System.Windows.Forms.GroupBox();
             this.groupBoxAddApart = new System.Windows.Forms.GroupBox();
             this.labelApart = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.comboBoxClass = new System.Windows.Forms.ComboBox();
+            this.buttonUpdateApart = new System.Windows.Forms.Button();
             this.buttonAddApart = new System.Windows.Forms.Button();
             this.textBoxApart = new System.Windows.Forms.TextBox();
             this.groupBoxClasses = new System.Windows.Forms.GroupBox();
@@ -52,27 +62,17 @@
             this.textBox_class_class = new System.Windows.Forms.TextBox();
             this.buttonEdit = new System.Windows.Forms.Button();
             this.buttonCancell = new System.Windows.Forms.Button();
-            this.buttonUpdateApart = new System.Windows.Forms.Button();
-            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.placesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.roomsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.classBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.hotelDbDataSet = new Novotel.HotelDbDataSet();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.classidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apartamentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.apartamentTableAdapter = new Novotel.HotelDbDataSetTableAdapters.apartamentTableAdapter();
             this.classTableAdapter = new Novotel.HotelDbDataSetTableAdapters.classTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAparts)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.apartamentBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hotelDbDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClasses)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.classBindingSource)).BeginInit();
             this.groupBoxAparts.SuspendLayout();
             this.groupBoxAddApart.SuspendLayout();
             this.groupBoxClasses.SuspendLayout();
             this.groupBoxAddClass.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.classBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hotelDbDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.apartamentBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewAparts
@@ -86,10 +86,33 @@
             this.dataGridViewAparts.DataSource = this.apartamentBindingSource;
             this.dataGridViewAparts.Location = new System.Drawing.Point(18, 31);
             this.dataGridViewAparts.Name = "dataGridViewAparts";
+            this.dataGridViewAparts.RowHeadersVisible = false;
             this.dataGridViewAparts.RowTemplate.Height = 28;
             this.dataGridViewAparts.Size = new System.Drawing.Size(279, 558);
             this.dataGridViewAparts.TabIndex = 0;
             this.dataGridViewAparts.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewAparts_CellEnter);
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "apartament";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            // 
+            // classidDataGridViewTextBoxColumn
+            // 
+            this.classidDataGridViewTextBoxColumn.DataPropertyName = "class_id";
+            this.classidDataGridViewTextBoxColumn.HeaderText = "class";
+            this.classidDataGridViewTextBoxColumn.Name = "classidDataGridViewTextBoxColumn";
+            // 
+            // apartamentBindingSource
+            // 
+            this.apartamentBindingSource.DataMember = "apartament";
+            this.apartamentBindingSource.DataSource = this.hotelDbDataSet;
+            // 
+            // hotelDbDataSet
+            // 
+            this.hotelDbDataSet.DataSetName = "HotelDbDataSet";
+            this.hotelDbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // dataGridViewClasses
             // 
@@ -104,10 +127,40 @@
             this.dataGridViewClasses.DataSource = this.classBindingSource;
             this.dataGridViewClasses.Location = new System.Drawing.Point(6, 30);
             this.dataGridViewClasses.Name = "dataGridViewClasses";
+            this.dataGridViewClasses.RowHeadersVisible = false;
             this.dataGridViewClasses.RowTemplate.Height = 28;
             this.dataGridViewClasses.Size = new System.Drawing.Size(570, 323);
             this.dataGridViewClasses.TabIndex = 1;
             this.dataGridViewClasses.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewClasses_CellEnter);
+            // 
+            // idDataGridViewTextBoxColumn1
+            // 
+            this.idDataGridViewTextBoxColumn1.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn1.HeaderText = "class";
+            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
+            // 
+            // placesDataGridViewTextBoxColumn
+            // 
+            this.placesDataGridViewTextBoxColumn.DataPropertyName = "places";
+            this.placesDataGridViewTextBoxColumn.HeaderText = "places";
+            this.placesDataGridViewTextBoxColumn.Name = "placesDataGridViewTextBoxColumn";
+            // 
+            // roomsDataGridViewTextBoxColumn
+            // 
+            this.roomsDataGridViewTextBoxColumn.DataPropertyName = "rooms";
+            this.roomsDataGridViewTextBoxColumn.HeaderText = "rooms";
+            this.roomsDataGridViewTextBoxColumn.Name = "roomsDataGridViewTextBoxColumn";
+            // 
+            // priceDataGridViewTextBoxColumn
+            // 
+            this.priceDataGridViewTextBoxColumn.DataPropertyName = "price";
+            this.priceDataGridViewTextBoxColumn.HeaderText = "price";
+            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            // 
+            // classBindingSource
+            // 
+            this.classBindingSource.DataMember = "class";
+            this.classBindingSource.DataSource = this.hotelDbDataSet;
             // 
             // groupBoxAparts
             // 
@@ -161,6 +214,16 @@
             this.comboBoxClass.Name = "comboBoxClass";
             this.comboBoxClass.Size = new System.Drawing.Size(189, 28);
             this.comboBoxClass.TabIndex = 1;
+            // 
+            // buttonUpdateApart
+            // 
+            this.buttonUpdateApart.Location = new System.Drawing.Point(156, 143);
+            this.buttonUpdateApart.Name = "buttonUpdateApart";
+            this.buttonUpdateApart.Size = new System.Drawing.Size(104, 33);
+            this.buttonUpdateApart.TabIndex = 2;
+            this.buttonUpdateApart.Text = "update";
+            this.buttonUpdateApart.UseVisualStyleBackColor = true;
+            this.buttonUpdateApart.Click += new System.EventHandler(this.buttonUpdateApart_Click);
             // 
             // buttonAddApart
             // 
@@ -313,67 +376,6 @@
             this.buttonCancell.UseVisualStyleBackColor = true;
             this.buttonCancell.Click += new System.EventHandler(this.buttonCancell_Click);
             // 
-            // buttonUpdateApart
-            // 
-            this.buttonUpdateApart.Location = new System.Drawing.Point(156, 143);
-            this.buttonUpdateApart.Name = "buttonUpdateApart";
-            this.buttonUpdateApart.Size = new System.Drawing.Size(104, 33);
-            this.buttonUpdateApart.TabIndex = 2;
-            this.buttonUpdateApart.Text = "update";
-            this.buttonUpdateApart.UseVisualStyleBackColor = true;
-            this.buttonUpdateApart.Click += new System.EventHandler(this.buttonUpdateApart_Click);
-            // 
-            // idDataGridViewTextBoxColumn1
-            // 
-            this.idDataGridViewTextBoxColumn1.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn1.HeaderText = "class";
-            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
-            // 
-            // placesDataGridViewTextBoxColumn
-            // 
-            this.placesDataGridViewTextBoxColumn.DataPropertyName = "places";
-            this.placesDataGridViewTextBoxColumn.HeaderText = "places";
-            this.placesDataGridViewTextBoxColumn.Name = "placesDataGridViewTextBoxColumn";
-            // 
-            // roomsDataGridViewTextBoxColumn
-            // 
-            this.roomsDataGridViewTextBoxColumn.DataPropertyName = "rooms";
-            this.roomsDataGridViewTextBoxColumn.HeaderText = "rooms";
-            this.roomsDataGridViewTextBoxColumn.Name = "roomsDataGridViewTextBoxColumn";
-            // 
-            // priceDataGridViewTextBoxColumn
-            // 
-            this.priceDataGridViewTextBoxColumn.DataPropertyName = "price";
-            this.priceDataGridViewTextBoxColumn.HeaderText = "price";
-            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
-            // 
-            // classBindingSource
-            // 
-            this.classBindingSource.DataMember = "class";
-            this.classBindingSource.DataSource = this.hotelDbDataSet;
-            // 
-            // hotelDbDataSet
-            // 
-            this.hotelDbDataSet.DataSetName = "HotelDbDataSet";
-            this.hotelDbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "apartament";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            // 
-            // classidDataGridViewTextBoxColumn
-            // 
-            this.classidDataGridViewTextBoxColumn.DataPropertyName = "class_id";
-            this.classidDataGridViewTextBoxColumn.HeaderText = "class";
-            this.classidDataGridViewTextBoxColumn.Name = "classidDataGridViewTextBoxColumn";
-            // 
-            // apartamentBindingSource
-            // 
-            this.apartamentBindingSource.DataMember = "apartament";
-            this.apartamentBindingSource.DataSource = this.hotelDbDataSet;
-            // 
             // apartamentTableAdapter
             // 
             this.apartamentTableAdapter.ClearBeforeFill = true;
@@ -395,16 +397,16 @@
             this.Size = new System.Drawing.Size(1320, 660);
             this.Load += new System.EventHandler(this.RoomsUC_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAparts)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.apartamentBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hotelDbDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClasses)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.classBindingSource)).EndInit();
             this.groupBoxAparts.ResumeLayout(false);
             this.groupBoxAddApart.ResumeLayout(false);
             this.groupBoxAddApart.PerformLayout();
             this.groupBoxClasses.ResumeLayout(false);
             this.groupBoxAddClass.ResumeLayout(false);
             this.groupBoxAddClass.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.classBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hotelDbDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.apartamentBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

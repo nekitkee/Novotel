@@ -27,8 +27,9 @@ namespace Novotel
             apartamentBindingSource.DataSource = this.hotelDbDataSet.apartament;
 
             //hide start empty column on DataGridView
-            dataGridViewAparts.RowHeadersVisible = false;
-            dataGridViewClasses.RowHeadersVisible = false;
+            //dataGridViewAparts.RowHeadersVisible = false;
+            //dataGridViewClasses.RowHeadersVisible = false;
+
             //disable multiselect
             dataGridViewAparts.MultiSelect = false;
             dataGridViewClasses.MultiSelect = false;

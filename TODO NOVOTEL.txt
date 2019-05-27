@@ -4,14 +4,6 @@ TODO:
 
 2.make statistic SQL quaries.
 
-3.make new thread for pushup msg when adding to booking list.
-
-4.count max places when adding to booking list. 
-
-5.verifing pc and keys on MakebookingUC
-
-### 7.make UC for keys (list , update , deactivate , )
-
 8.make UC for room history (open/closed)
 
 10.make UC for editing bookings
@@ -20,7 +12,24 @@ TODO:
 
 12. handle all exception
 
+14. client history
+
+
+OPTIONAL:
+
+5.verifing pc and keys on MakebookingUC 
+
+4.count max places when adding to booking list. 
+
+3.make new thread for pushup msg when adding to booking list.
+
+13.make booking context menu - delete row , check info (optional)
+
+15. refresh key on every UC
+
 DONE:
+
+7.make UC for keys (list , update , deactivate , )
 
 9.On click cell fill textboxes in RoomsUC
 
