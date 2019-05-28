@@ -85,6 +85,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoomsStateUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RoomsStateUC.Designer.cs">
+      <DependentUpon>RoomsStateUC.cs</DependentUpon>
+    </Compile>
     <Compile Include="RoomsUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -115,6 +121,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="RoomsStateUC.resx">
+      <DependentUpon>RoomsStateUC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RoomsUC.resx">
       <DependentUpon>RoomsUC.cs</DependentUpon>
     </EmbeddedResource>

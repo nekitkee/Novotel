@@ -44,7 +44,8 @@ namespace Novotel
 
         private void openclosedToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //TODO
+            roomsStateUC1.BringToFront();
+
         }
 
         private void keysToolStripMenuItem_Click(object sender, EventArgs e)

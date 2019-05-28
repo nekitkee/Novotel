@@ -49,6 +49,7 @@
             this.bookingList1 = new Novotel.BookingList();
             this.keysUC1 = new Novotel.KeysUC();
             this.roomsUC1 = new Novotel.RoomsUC();
+            this.roomsStateUC1 = new Novotel.RoomsStateUC();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -127,14 +128,14 @@
             // apartamnetsListToolStripMenuItem
             // 
             this.apartamnetsListToolStripMenuItem.Name = "apartamnetsListToolStripMenuItem";
-            this.apartamnetsListToolStripMenuItem.Size = new System.Drawing.Size(195, 30);
+            this.apartamnetsListToolStripMenuItem.Size = new System.Drawing.Size(210, 30);
             this.apartamnetsListToolStripMenuItem.Text = "List";
             this.apartamnetsListToolStripMenuItem.Click += new System.EventHandler(this.apartamnetsListToolStripMenuItem_Click);
             // 
             // openclosedToolStripMenuItem
             // 
             this.openclosedToolStripMenuItem.Name = "openclosedToolStripMenuItem";
-            this.openclosedToolStripMenuItem.Size = new System.Drawing.Size(195, 30);
+            this.openclosedToolStripMenuItem.Size = new System.Drawing.Size(210, 30);
             this.openclosedToolStripMenuItem.Text = "open/closed";
             this.openclosedToolStripMenuItem.Click += new System.EventHandler(this.openclosedToolStripMenuItem_Click);
             // 
@@ -213,12 +214,20 @@
             this.roomsUC1.Size = new System.Drawing.Size(1320, 660);
             this.roomsUC1.TabIndex = 3;
             // 
+            // roomsStateUC1
+            // 
+            this.roomsStateUC1.Location = new System.Drawing.Point(1, 42);
+            this.roomsStateUC1.Name = "roomsStateUC1";
+            this.roomsStateUC1.Size = new System.Drawing.Size(1320, 660);
+            this.roomsStateUC1.TabIndex = 6;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(1320, 702);
+            this.Controls.Add(this.roomsStateUC1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.clientList1);
             this.Controls.Add(this.makeBooking11);
@@ -261,6 +270,7 @@
         private System.Windows.Forms.ToolStripMenuItem bookingListToolStripMenuItem;
         private BookingList bookingList1;
         private System.Windows.Forms.ToolStripMenuItem clientHistoryToolStripMenuItem;
+        private RoomsStateUC roomsStateUC1;
     }
 }
 

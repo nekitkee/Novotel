@@ -1,17 +1,18 @@
 TODO:
 
-1.Add icons to buttons , and make icon for project.
+14. client history
 
 2.make statistic SQL quaries.
 
-8.make UC for room history (open/closed)
+1.Add icons to buttons , and make icon for project.
+
+
 
 11.setup form
 
-12. handle all exception
+12. handle all exception //
 
-14. client history
-
+18.import open/closed as txt
 
 OPTIONAL:
 
@@ -30,12 +31,8 @@ OPTIONAL:
 17.upload set.txt of keys
 
 DONE:
-
-
+8.make UC for room history (open/closed)
 10.make UC for editing bookings
-
 7.make UC for keys (list , update , deactivate , )
-
 9.On click cell fill textboxes in RoomsUC
-
 6.add new booking to db
