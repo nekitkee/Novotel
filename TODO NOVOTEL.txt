@@ -6,8 +6,6 @@ TODO:
 
 8.make UC for room history (open/closed)
 
-10.make UC for editing bookings
-
 11.setup form
 
 12. handle all exception
@@ -25,9 +23,16 @@ OPTIONAL:
 
 13.make booking context menu - delete row , check info (optional)
 
-15. refresh key on every UC
+15. refresh button on every UC
+
+16. verifing dates on changebooking ADVANTAGE SETTINGS and make Context menu (show person , delete , update)
+
+17.upload set.txt of keys
 
 DONE:
+
+
+10.make UC for editing bookings
 
 7.make UC for keys (list , update , deactivate , )
 

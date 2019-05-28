@@ -113,17 +113,17 @@
             this.groupboxKey.Controls.Add(this.labelApartament);
             this.groupboxKey.Controls.Add(this.textBoxApartamnetId);
             this.groupboxKey.Controls.Add(this.textBoxKeyId);
-            this.groupboxKey.Location = new System.Drawing.Point(765, 201);
+            this.groupboxKey.Location = new System.Drawing.Point(630, 167);
             this.groupboxKey.Name = "groupboxKey";
-            this.groupboxKey.Size = new System.Drawing.Size(439, 204);
+            this.groupboxKey.Size = new System.Drawing.Size(597, 204);
             this.groupboxKey.TabIndex = 1;
             this.groupboxKey.TabStop = false;
-            this.groupboxKey.Text = "groupBox1";
+            this.groupboxKey.Text = "key info";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(329, 45);
+            this.label2.Location = new System.Drawing.Point(389, 47);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(33, 20);
             this.label2.TabIndex = 3;
@@ -132,7 +132,7 @@
             // checkBoxActive
             // 
             this.checkBoxActive.AutoSize = true;
-            this.checkBoxActive.Location = new System.Drawing.Point(308, 148);
+            this.checkBoxActive.Location = new System.Drawing.Point(368, 150);
             this.checkBoxActive.Name = "checkBoxActive";
             this.checkBoxActive.Size = new System.Drawing.Size(76, 24);
             this.checkBoxActive.TabIndex = 1;
@@ -142,7 +142,7 @@
             // labelApartament
             // 
             this.labelApartament.AutoSize = true;
-            this.labelApartament.Location = new System.Drawing.Point(329, 98);
+            this.labelApartament.Location = new System.Drawing.Point(389, 100);
             this.labelApartament.Name = "labelApartament";
             this.labelApartament.Size = new System.Drawing.Size(91, 20);
             this.labelApartament.TabIndex = 3;
@@ -150,21 +150,21 @@
             // 
             // textBoxApartamnetId
             // 
-            this.textBoxApartamnetId.Location = new System.Drawing.Point(17, 92);
+            this.textBoxApartamnetId.Location = new System.Drawing.Point(77, 94);
             this.textBoxApartamnetId.Name = "textBoxApartamnetId";
             this.textBoxApartamnetId.Size = new System.Drawing.Size(278, 26);
             this.textBoxApartamnetId.TabIndex = 0;
             // 
             // textBoxKeyId
             // 
-            this.textBoxKeyId.Location = new System.Drawing.Point(17, 42);
+            this.textBoxKeyId.Location = new System.Drawing.Point(77, 44);
             this.textBoxKeyId.Name = "textBoxKeyId";
             this.textBoxKeyId.Size = new System.Drawing.Size(278, 26);
             this.textBoxKeyId.TabIndex = 0;
             // 
             // buttonEdit
             // 
-            this.buttonEdit.Location = new System.Drawing.Point(691, 442);
+            this.buttonEdit.Location = new System.Drawing.Point(629, 407);
             this.buttonEdit.Name = "buttonEdit";
             this.buttonEdit.Size = new System.Drawing.Size(110, 36);
             this.buttonEdit.TabIndex = 2;
@@ -174,7 +174,7 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(1100, 442);
+            this.buttonSave.Location = new System.Drawing.Point(1038, 407);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(110, 36);
             this.buttonSave.TabIndex = 2;
@@ -184,7 +184,7 @@
             // 
             // buttonNew
             // 
-            this.buttonNew.Location = new System.Drawing.Point(830, 442);
+            this.buttonNew.Location = new System.Drawing.Point(768, 407);
             this.buttonNew.Name = "buttonNew";
             this.buttonNew.Size = new System.Drawing.Size(110, 36);
             this.buttonNew.TabIndex = 2;
@@ -194,7 +194,7 @@
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(965, 442);
+            this.buttonCancel.Location = new System.Drawing.Point(903, 407);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(110, 36);
             this.buttonCancel.TabIndex = 2;
