@@ -147,5 +147,10 @@ namespace Novotel
         {
 
         }
+
+        private void checkBoxActive_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -73,5 +73,15 @@ namespace Novotel
         {
             bookingList1.BringToFront();
         }
+
+        private void clientHistoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            clientHistoryUC1.BringToFront();
+        }
+
+        private void numbersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            statisticUC1.BringToFront();
+        }
     }
 }

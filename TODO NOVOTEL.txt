@@ -1,12 +1,9 @@
 TODO:
 
-14. client history
 
-2.make statistic SQL quaries.
+###2.make statistic SQL quaries.
 
-1.Add icons to buttons , and make icon for project.
-
-
+###1.Add icons to buttons , and make icon for project.
 
 11.setup form
 
@@ -16,7 +13,6 @@ TODO:
 
 OPTIONAL:
 
-5.verifing pc and keys on MakebookingUC 
 
 4.count max places when adding to booking list. 
 
@@ -26,11 +22,14 @@ OPTIONAL:
 
 15. refresh button on every UC
 
-16. verifing dates on changebooking ADVANTAGE SETTINGS and make Context menu (show person , delete , update)
+
 
 17.upload set.txt of keys
 
 DONE:
+16. verifing dates on changebooking ADVANTAGE SETTINGS and make Context menu (show person , delete , update)
+5.verifing pc and keys on MakebookingUC 
+14. client history
 8.make UC for room history (open/closed)
 10.make UC for editing bookings
 7.make UC for keys (list , update , deactivate , )

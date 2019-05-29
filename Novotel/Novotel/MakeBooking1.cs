@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace Novotel
 {
@@ -102,7 +103,52 @@ namespace Novotel
 
             try
             {
-            //TODO if verified (key exist , pc exisr , apartamnet is empty)
+                //verifing data in booking list
+                if (checkBox1.Checked)
+                {
+                    for (int i = 0; i < dataGridViewList.Rows.Count - 1; i++)
+                    {
+
+                        if (dataGridViewList.Rows[i].Cells[0].Value == null)
+                            continue;
+
+                        string PC = dataGridViewList.Rows[i].Cells[0].Value.ToString();
+                        string key = dataGridViewList.Rows[i].Cells[1].Value.ToString();
+
+                        if (string.IsNullOrEmpty(key)) 
+                            throw new Exception($"All clients must have the keys");
+                       
+                        if (queriesTableAdapter1.PCexist(PC).Value == 0)
+                            throw new Exception($"Client: {PC} from booking list, doesnt exist in database");
+
+                        if (!keyTableAdapter1.KeyActivity(key).HasValue)
+                            throw new Exception($"Key: {key} from booking list, doesnt exis");
+
+                        if (keyTableAdapter1.KeyActivity(key).Value)
+                            throw new Exception($"Key: {key} is already active now");
+
+                    }
+
+                    DateTime to = dateTo.Value;
+                    DateTime from = dateFrom.Value;
+                    int apart = int.Parse(textBoxRoom.Text);
+
+                    int? intersec = queriesTableAdapter1.BookingIntersectionCount(apart, from, to,
+                        apart, from, to,
+                        apart, from, to);
+
+                    if (intersec.Value != 0)
+                        throw new Exception("Apartament is not free for this day");
+
+                    //string checkin = dateFrom.Value.ToString();
+                    //string checkout = dateTo.Value.ToString();
+                    //string quaryString = $"SELECT COUNT(*) AS result FROM booking WHERE(apartament_id = {textBoxRoom.Text}) AND((checkin <= {checkin}) AND(checkout >= {checkout}) OR((checkin > {checkin}) AND(checkin < {checkout})) OR ((checkout >= {checkin}) AND(checkout <={checkout})))";
+
+                    //SqlConnection con = new SqlConnection(classTableAdapter.Connection.ConnectionString);
+                    //SqlCommand command = new SqlCommand(quaryString, con);
+                    //object res = command.ExecuteScalar();
+                }
+
 
                 int apartament = int.Parse(textBoxRoom.Text);
 
@@ -135,8 +181,9 @@ namespace Novotel
 
                 //else error
 
-           }catch(Exception ex) { }
+           }catch(Exception ex) { MessageBox.Show(ex.Message); }
 
+            
         }
     }
 }

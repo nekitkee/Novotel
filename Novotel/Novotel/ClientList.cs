@@ -129,13 +129,19 @@ namespace Novotel
             }
             else
             {
-                var query = from o in this.hotelDbDataSet.client
-                            where o.firstname.ToString().ToLower().Contains(textBoxSearch.Text.ToLower())
-                            || o.lastname.ToString().ToLower().Contains(textBoxSearch.Text.ToLower())
-                            || o.PC.ToString().Contains(textBoxSearch.Text)
-                            select o;
+                //SQL search
+                string searchParam = textBoxSearch.Text;
+                this.clientTableAdapter.FindAndFill(hotelDbDataSet.client, searchParam, searchParam, searchParam);
 
-                clientBindingSource.DataSource = query.ToList();
+                //LINQ search
+
+                //var query = from o in this.hotelDbDataSet.client
+                //            where o.firstname.ToString().ToLower().Contains(textBoxSearch.Text.ToLower())
+                //            || o.lastname.ToString().ToLower().Contains(textBoxSearch.Text.ToLower())
+                //            || o.PC.ToString().Contains(textBoxSearch.Text)
+                //            select o;
+
+                //clientBindingSource.DataSource = query.ToList();
 
             }
         }

@@ -19,17 +19,20 @@ namespace Novotel
         //on cell ENTER - FILL client window with related data
         private void dataGridViewBooking_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewCellCollection CellCol = dataGridViewBooking.CurrentRow.Cells;
-            int bookingId = (int)CellCol[0].Value;
-            clientBookingTableAdapter.FillByBookingId(hotelDbDataSet.clientBooking, bookingId);
+            try
+            {
+                DataGridViewCellCollection CellCol = dataGridViewBooking.CurrentRow.Cells;
+                int bookingId = (int)CellCol[0].Value;
+                clientBookingTableAdapter.FillByBookingId(hotelDbDataSet.clientBooking, bookingId);
 
-            textBoxBookingId.Text = CellCol[0].Value.ToString();
-            textBoxApartament.Text = CellCol[4].Value.ToString();
-            textBoxPrice.Text = CellCol[3].Value.ToString();
+                textBoxBookingId.Text = CellCol[0].Value.ToString();
+                textBoxApartament.Text = CellCol[4].Value.ToString();
+                textBoxPrice.Text = CellCol[3].Value.ToString();
 
-            dateTimePickerFrom.Value = (DateTime)CellCol[1].Value;
-            dateTimePickerTo.Value = (DateTime)CellCol[2].Value;
-            
+                dateTimePickerFrom.Value = (DateTime)CellCol[1].Value;
+                dateTimePickerTo.Value = (DateTime)CellCol[2].Value;
+
+            }catch(Exception ex) { }
 
         }
 
@@ -85,6 +88,14 @@ namespace Novotel
                 string key = textBoxKey.Text;
                 int apartament = int.Parse(textBoxApartament.Text);
 
+                int? clientExist = queriesTableAdapter1.PCexist(PC);
+                if (clientExist.Value == 0)
+                    throw new Exception("client doesnt exist");
+
+                bool? keyExist = keyTableAdapter1.KeyActivity(key);
+                if (!keyExist.HasValue)
+                    throw new Exception("key doesnt exist");
+
                 clientBookingTableAdapter.Insert(PC, bookingId, key);
                 keyTableAdapter1.UpdateQuery(apartament, true, key);
                 clientBookingTableAdapter.FillByBookingId(hotelDbDataSet.clientBooking, bookingId);
@@ -93,7 +104,7 @@ namespace Novotel
                 groupBoxChangeBooking.Enabled = false;
 
             }
-            catch(Exception ex) { }
+            catch(Exception ex) { MessageBox.Show(ex.Message); }
         }
 
 
@@ -107,10 +118,20 @@ namespace Novotel
                 string key = textBoxKey.Text;
                 int apartament = int.Parse(textBoxApartament.Text);
 
-               
+                int? clientExist = queriesTableAdapter1.PCexist(PC);
+                if (clientExist.Value == 0)
+                    throw new Exception("client doesnt exist");
+
+                bool? keyExist = keyTableAdapter1.KeyActivity(key);
+                if (!keyExist.HasValue)
+                    throw new Exception("key doesnt exist");
+
+
                 clientBookingTableAdapter.UpdateQuery(bookingId, key, PC);
                 keyTableAdapter1.UpdateQuery(apartament, true, key);
 
+
+              
 
                 clientBookingTableAdapter.FillByBookingId(hotelDbDataSet.clientBooking, bookingId);
 
@@ -118,9 +139,10 @@ namespace Novotel
                 groupBoxChangeBooking.Enabled = false;
 
             }
-            catch (Exception ex) { }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
+        //delete client from booking
         private void buttonDelete_Click(object sender, EventArgs e)
         {
             try
@@ -142,6 +164,7 @@ namespace Novotel
             catch (Exception ex) { }
         }
 
+        //update booking info
         private void buttonBookingSave_Click(object sender, EventArgs e)
         {
             try
@@ -154,9 +177,11 @@ namespace Novotel
                 DateTime to = dateTimePickerTo.Value;
                 decimal price = decimal.Parse(textBoxPrice.Text);
 
-                //TODO: check dates SQL
-
-                
+                // check dates SQL
+                int? intersec = queriesTableAdapter1.BookingIntersectionCount(bookingId, from, to, bookingId, from, to, bookingId, from, to);
+                if (intersec.Value != 0)
+                    throw new Exception("Apartament is not free on this days");
+               
 
                 bookingTableAdapter.UpdateQuery(from, to, price, apartament, bookingId);
 
@@ -166,7 +191,7 @@ namespace Novotel
                 groupBoxChangeBooking.Enabled = false;
 
             }
-            catch (Exception ex) { }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
     }
 }

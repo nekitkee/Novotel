@@ -40,16 +40,19 @@
             this.openclosedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.keysToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statisticToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.numbersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contactsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.apartamentTableAdapter1 = new Novotel.HotelDbDataSetTableAdapters.apartamentTableAdapter();
+            this.clientHistoryUC1 = new Novotel.ClientHistoryUC();
+            this.roomsStateUC1 = new Novotel.RoomsStateUC();
             this.clientList1 = new Novotel.ClientList();
             this.makeBooking11 = new Novotel.MakeBooking1();
             this.bookingList1 = new Novotel.BookingList();
             this.keysUC1 = new Novotel.KeysUC();
             this.roomsUC1 = new Novotel.RoomsUC();
-            this.roomsStateUC1 = new Novotel.RoomsStateUC();
+            this.statisticUC1 = new Novotel.StatisticUC();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -92,6 +95,7 @@
             this.clientHistoryToolStripMenuItem.Name = "clientHistoryToolStripMenuItem";
             this.clientHistoryToolStripMenuItem.Size = new System.Drawing.Size(199, 30);
             this.clientHistoryToolStripMenuItem.Text = "Client history";
+            this.clientHistoryToolStripMenuItem.Click += new System.EventHandler(this.clientHistoryToolStripMenuItem_Click);
             // 
             // bookingToolStripMenuItem
             // 
@@ -128,15 +132,15 @@
             // apartamnetsListToolStripMenuItem
             // 
             this.apartamnetsListToolStripMenuItem.Name = "apartamnetsListToolStripMenuItem";
-            this.apartamnetsListToolStripMenuItem.Size = new System.Drawing.Size(210, 30);
+            this.apartamnetsListToolStripMenuItem.Size = new System.Drawing.Size(198, 30);
             this.apartamnetsListToolStripMenuItem.Text = "List";
             this.apartamnetsListToolStripMenuItem.Click += new System.EventHandler(this.apartamnetsListToolStripMenuItem_Click);
             // 
             // openclosedToolStripMenuItem
             // 
             this.openclosedToolStripMenuItem.Name = "openclosedToolStripMenuItem";
-            this.openclosedToolStripMenuItem.Size = new System.Drawing.Size(210, 30);
-            this.openclosedToolStripMenuItem.Text = "open/closed";
+            this.openclosedToolStripMenuItem.Size = new System.Drawing.Size(198, 30);
+            this.openclosedToolStripMenuItem.Text = "Open/closed";
             this.openclosedToolStripMenuItem.Click += new System.EventHandler(this.openclosedToolStripMenuItem_Click);
             // 
             // keysToolStripMenuItem
@@ -148,9 +152,18 @@
             // 
             // statisticToolStripMenuItem
             // 
+            this.statisticToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.numbersToolStripMenuItem});
             this.statisticToolStripMenuItem.Name = "statisticToolStripMenuItem";
             this.statisticToolStripMenuItem.Size = new System.Drawing.Size(84, 29);
             this.statisticToolStripMenuItem.Text = "Statistic";
+            // 
+            // numbersToolStripMenuItem
+            // 
+            this.numbersToolStripMenuItem.Name = "numbersToolStripMenuItem";
+            this.numbersToolStripMenuItem.Size = new System.Drawing.Size(210, 30);
+            this.numbersToolStripMenuItem.Text = "Numbers";
+            this.numbersToolStripMenuItem.Click += new System.EventHandler(this.numbersToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -177,6 +190,20 @@
             // apartamentTableAdapter1
             // 
             this.apartamentTableAdapter1.ClearBeforeFill = true;
+            // 
+            // clientHistoryUC1
+            // 
+            this.clientHistoryUC1.Location = new System.Drawing.Point(1, 42);
+            this.clientHistoryUC1.Name = "clientHistoryUC1";
+            this.clientHistoryUC1.Size = new System.Drawing.Size(1320, 660);
+            this.clientHistoryUC1.TabIndex = 7;
+            // 
+            // roomsStateUC1
+            // 
+            this.roomsStateUC1.Location = new System.Drawing.Point(1, 42);
+            this.roomsStateUC1.Name = "roomsStateUC1";
+            this.roomsStateUC1.Size = new System.Drawing.Size(1320, 660);
+            this.roomsStateUC1.TabIndex = 6;
             // 
             // clientList1
             // 
@@ -214,12 +241,12 @@
             this.roomsUC1.Size = new System.Drawing.Size(1320, 660);
             this.roomsUC1.TabIndex = 3;
             // 
-            // roomsStateUC1
+            // statisticUC1
             // 
-            this.roomsStateUC1.Location = new System.Drawing.Point(1, 42);
-            this.roomsStateUC1.Name = "roomsStateUC1";
-            this.roomsStateUC1.Size = new System.Drawing.Size(1320, 660);
-            this.roomsStateUC1.TabIndex = 6;
+            this.statisticUC1.Location = new System.Drawing.Point(1, 43);
+            this.statisticUC1.Name = "statisticUC1";
+            this.statisticUC1.Size = new System.Drawing.Size(1320, 660);
+            this.statisticUC1.TabIndex = 8;
             // 
             // MainForm
             // 
@@ -227,13 +254,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(1320, 702);
-            this.Controls.Add(this.roomsStateUC1);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.statisticUC1);
             this.Controls.Add(this.clientList1);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.makeBooking11);
             this.Controls.Add(this.bookingList1);
             this.Controls.Add(this.keysUC1);
             this.Controls.Add(this.roomsUC1);
+            this.Controls.Add(this.clientHistoryUC1);
+            this.Controls.Add(this.roomsStateUC1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
@@ -271,6 +300,9 @@
         private BookingList bookingList1;
         private System.Windows.Forms.ToolStripMenuItem clientHistoryToolStripMenuItem;
         private RoomsStateUC roomsStateUC1;
+        private ClientHistoryUC clientHistoryUC1;
+        private System.Windows.Forms.ToolStripMenuItem numbersToolStripMenuItem;
+        private StatisticUC statisticUC1;
     }
 }
 

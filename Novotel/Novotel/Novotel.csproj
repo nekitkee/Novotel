@@ -51,6 +51,12 @@
     <Compile Include="BookingList.Designer.cs">
       <DependentUpon>BookingList.cs</DependentUpon>
     </Compile>
+    <Compile Include="ClientHistoryUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ClientHistoryUC.Designer.cs">
+      <DependentUpon>ClientHistoryUC.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClientList.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -97,8 +103,17 @@
     <Compile Include="RoomsUC.Designer.cs">
       <DependentUpon>RoomsUC.cs</DependentUpon>
     </Compile>
+    <Compile Include="StatisticUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StatisticUC.Designer.cs">
+      <DependentUpon>StatisticUC.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="BookingList.resx">
       <DependentUpon>BookingList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientHistoryUC.resx">
+      <DependentUpon>ClientHistoryUC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ClientList.resx">
       <DependentUpon>ClientList.cs</DependentUpon>
@@ -120,12 +135,16 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="RoomsStateUC.resx">
       <DependentUpon>RoomsStateUC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RoomsUC.resx">
       <DependentUpon>RoomsUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StatisticUC.resx">
+      <DependentUpon>StatisticUC.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="HotelDbDataSet.xsc">
       <DependentUpon>HotelDbDataSet.xsd</DependentUpon>
@@ -155,6 +174,17 @@
     <Content Include="HotelDb.mdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="obj\icons\Actions-edit-clear-icon.png" />
+    <None Include="obj\icons\up-icon.png" />
+    <None Include="obj\icons\trash-icon.png" />
+    <None Include="obj\icons\Actions-edit-undo-icon.png" />
+    <None Include="obj\icons\Search-icon.png" />
+    <None Include="obj\icons\delete-icon.png" />
+    <None Include="obj\icons\Pencil-icon.png" />
+    <None Include="obj\icons\Floppy-Small-icon %282%29.png" />
+    <None Include="obj\icons\add-icon %281%29.png" />
+    <None Include="obj\icons\add-icon.png" />
+    <None Include="obj\icons\Floppy-Small-icon %281%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
