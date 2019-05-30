@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Novotel
 {
@@ -46,6 +47,7 @@ namespace Novotel
         private void buttonNew_Click(object sender, EventArgs e)
         {
             groupboxKey.Enabled = true;
+            groupBoxAddFromFile.Enabled = true;
             addingNew = true;
 
             //clear fields
@@ -111,6 +113,7 @@ namespace Novotel
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             groupboxKey.Enabled = false;
+            groupBoxAddFromFile.Enabled = false;
         }
 
 
@@ -151,6 +154,47 @@ namespace Novotel
         private void checkBoxActive_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+
+       
+
+        private void buttonChooseFile(object sender, EventArgs e)
+        {
+            //dialog 
+
+            OpenFileDialog ofd = new OpenFileDialog();
+
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                textBoxFileName.Text = ofd.FileName;
+            }
+        }
+
+        private void buttonLoad_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!string.IsNullOrWhiteSpace(textBoxFileName.Text))
+                {
+                    using (StreamReader file = new StreamReader(textBoxFileName.Text))
+                    {
+                        string line;
+
+                        while ((line = file.ReadLine()) != null)
+                        {
+                            keyTableAdapter.Insert(line, null, false);
+                        }
+                    }
+
+                    this.keyTableAdapter.Fill(this.hotelDbDataSet.key);
+                    groupboxKey.Enabled = false;
+                    groupBoxAddFromFile.Enabled = false;
+
+                }
+
+
+
+            }catch(Exception ex) { MessageBox.Show(ex.Message); }
         }
     }
 }

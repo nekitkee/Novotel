@@ -217,21 +217,25 @@
             // 
             // buttonUpdateApart
             // 
+            this.buttonUpdateApart.Image = global::Novotel.Properties.Resources.up_icon;
+            this.buttonUpdateApart.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonUpdateApart.Location = new System.Drawing.Point(156, 143);
             this.buttonUpdateApart.Name = "buttonUpdateApart";
             this.buttonUpdateApart.Size = new System.Drawing.Size(104, 33);
             this.buttonUpdateApart.TabIndex = 2;
-            this.buttonUpdateApart.Text = "update";
+            this.buttonUpdateApart.Text = "  update";
             this.buttonUpdateApart.UseVisualStyleBackColor = true;
             this.buttonUpdateApart.Click += new System.EventHandler(this.buttonUpdateApart_Click);
             // 
             // buttonAddApart
             // 
+            this.buttonAddApart.Image = global::Novotel.Properties.Resources.add_icon__1_;
+            this.buttonAddApart.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonAddApart.Location = new System.Drawing.Point(21, 143);
             this.buttonAddApart.Name = "buttonAddApart";
             this.buttonAddApart.Size = new System.Drawing.Size(109, 33);
             this.buttonAddApart.TabIndex = 2;
-            this.buttonAddApart.Text = "add +";
+            this.buttonAddApart.Text = "  add";
             this.buttonAddApart.UseVisualStyleBackColor = true;
             this.buttonAddApart.Click += new System.EventHandler(this.buttonAddApart_Click);
             // 
@@ -257,9 +261,9 @@
             // 
             this.groupBoxAddClass.Controls.Add(this.buttonClassUpdate);
             this.groupBoxAddClass.Controls.Add(this.textBox_class_price);
+            this.groupBoxAddClass.Controls.Add(this.buttonAddClass);
             this.groupBoxAddClass.Controls.Add(this.label3);
             this.groupBoxAddClass.Controls.Add(this.label2);
-            this.groupBoxAddClass.Controls.Add(this.buttonAddClass);
             this.groupBoxAddClass.Controls.Add(this.label1);
             this.groupBoxAddClass.Controls.Add(this.labelclass);
             this.groupBoxAddClass.Controls.Add(this.textBox_class_rooms);
@@ -274,11 +278,13 @@
             // 
             // buttonClassUpdate
             // 
-            this.buttonClassUpdate.Location = new System.Drawing.Point(457, 131);
+            this.buttonClassUpdate.Image = global::Novotel.Properties.Resources.up_icon;
+            this.buttonClassUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonClassUpdate.Location = new System.Drawing.Point(435, 131);
             this.buttonClassUpdate.Name = "buttonClassUpdate";
-            this.buttonClassUpdate.Size = new System.Drawing.Size(86, 33);
+            this.buttonClassUpdate.Size = new System.Drawing.Size(109, 33);
             this.buttonClassUpdate.TabIndex = 5;
-            this.buttonClassUpdate.Text = "update";
+            this.buttonClassUpdate.Text = "  update";
             this.buttonClassUpdate.UseVisualStyleBackColor = true;
             this.buttonClassUpdate.Click += new System.EventHandler(this.buttonClassUpdate_Click);
             // 
@@ -309,11 +315,13 @@
             // 
             // buttonAddClass
             // 
-            this.buttonAddClass.Location = new System.Drawing.Point(356, 131);
+            this.buttonAddClass.Image = global::Novotel.Properties.Resources.add_icon__1_;
+            this.buttonAddClass.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonAddClass.Location = new System.Drawing.Point(299, 131);
             this.buttonAddClass.Name = "buttonAddClass";
-            this.buttonAddClass.Size = new System.Drawing.Size(86, 33);
+            this.buttonAddClass.Size = new System.Drawing.Size(109, 33);
             this.buttonAddClass.TabIndex = 2;
-            this.buttonAddClass.Text = "add +";
+            this.buttonAddClass.Text = "  add";
             this.buttonAddClass.UseVisualStyleBackColor = true;
             this.buttonAddClass.Click += new System.EventHandler(this.buttonAddClass_Click);
             // 
@@ -358,21 +366,25 @@
             // 
             // buttonEdit
             // 
-            this.buttonEdit.Location = new System.Drawing.Point(721, 593);
+            this.buttonEdit.Image = global::Novotel.Properties.Resources.Pencil_icon;
+            this.buttonEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonEdit.Location = new System.Drawing.Point(717, 590);
             this.buttonEdit.Name = "buttonEdit";
-            this.buttonEdit.Size = new System.Drawing.Size(96, 30);
+            this.buttonEdit.Size = new System.Drawing.Size(104, 33);
             this.buttonEdit.TabIndex = 5;
-            this.buttonEdit.Text = "edit...";
+            this.buttonEdit.Text = "   edit...";
             this.buttonEdit.UseVisualStyleBackColor = true;
             this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
             // 
             // buttonCancell
             // 
-            this.buttonCancell.Location = new System.Drawing.Point(834, 593);
+            this.buttonCancell.Image = global::Novotel.Properties.Resources.Actions_edit_clear_icon;
+            this.buttonCancell.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonCancell.Location = new System.Drawing.Point(836, 590);
             this.buttonCancell.Name = "buttonCancell";
-            this.buttonCancell.Size = new System.Drawing.Size(89, 30);
+            this.buttonCancell.Size = new System.Drawing.Size(104, 33);
             this.buttonCancell.TabIndex = 2;
-            this.buttonCancell.Text = "cancel";
+            this.buttonCancell.Text = "     cancel";
             this.buttonCancell.UseVisualStyleBackColor = true;
             this.buttonCancell.Click += new System.EventHandler(this.buttonCancell_Click);
             // 

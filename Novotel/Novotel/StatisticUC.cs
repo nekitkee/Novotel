@@ -17,7 +17,8 @@ namespace Novotel
             InitializeComponent();
         }
 
-        private void StatisticUC_Load(object sender, EventArgs e)
+
+        private void CalculateStatistic()
         {
             try
             {
@@ -34,15 +35,36 @@ namespace Novotel
                 labelTotalMoney.Text = totalEarned.HasValue ? totalEarned.Value.ToString() + " EUR" : "0 EUR";
 
                 //average Bill
-                labelAvgBill.Text = totalEarned.HasValue & bookingCount.HasValue ? 
-                    (totalEarned.Value / bookingCount.Value).ToString() + " EUR": "0 EUR";
+                labelAvgBill.Text = totalEarned.HasValue & bookingCount.HasValue ?
+                    (totalEarned.Value / bookingCount.Value).ToString() + " EUR" : "0 EUR";
 
                 //active keys 
                 int? activeKeys = queriesTableAdapter1.ActiveKeys();
                 labelActiveKeys.Text = activeKeys.HasValue ? activeKeys.Value.ToString() : "0";
 
-            }catch(Exception ex) { }
+                //apartament count
+                int? apartCount = queriesTableAdapter1.CountOfApartament();
+                LabelApartTotal.Text = apartCount.Value.ToString();
 
+                //free apart
+                int? freeApart = queriesTableAdapter1.CountOfFreeApart(DateTime.Now, DateTime.Now);
+                labelFreeApart.Text = freeApart.Value.ToString();
+
+                //busy apart
+                labelBusyAparts.Text = (apartCount.Value - freeApart.Value).ToString();
+
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+        private void StatisticUC_Load(object sender, EventArgs e)
+        {
+            CalculateStatistic();
+        }
+
+        private void buttonRefresh_Click(object sender, EventArgs e)
+        {
+            CalculateStatistic();
         }
     }
 }

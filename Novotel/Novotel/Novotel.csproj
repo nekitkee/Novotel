@@ -31,7 +31,13 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>building.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MetroFramework">
+      <HintPath>..\..\..\..\..\source\repos\Novotel\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -171,9 +177,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="building.ico" />
+    <Content Include="hotel.ico" />
     <Content Include="HotelDb.mdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="obj\icons\page-white-get-icon.png" />
+    <None Include="obj\icons\folder-key-icon.png" />
+    <None Include="obj\icons\Refresh-icon.png" />
     <None Include="obj\icons\Actions-edit-clear-icon.png" />
     <None Include="obj\icons\up-icon.png" />
     <None Include="obj\icons\trash-icon.png" />

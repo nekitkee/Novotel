@@ -39,7 +39,7 @@ namespace Novotel
 
         private void ButtonSearch_Click(object sender, EventArgs e)
         {
-            // dataGridViewFreeApart.DataSource = 
+            
             HotelDbDataSet.apartamentDataTable allfreerooms =  apartamentTableAdapter.GetDataByFreeRooms(
                 dateFrom.Value, dateTo.Value,
                 dateFrom.Value, dateTo.Value,
@@ -55,7 +55,7 @@ namespace Novotel
             dataGridViewFreeApart.Columns[0].HeaderCell.Value = "Room";
             dataGridViewFreeApart.RowHeadersVisible = false;
                 
-            //dataGridViewFreeApart.DataMember = "id";
+           
 
         }
 
@@ -76,6 +76,8 @@ namespace Novotel
                 }
             }catch(Exception e) {}
         }
+
+        
 
         //choose room
         private void dataGridViewFreeApart_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -103,9 +105,13 @@ namespace Novotel
 
             try
             {
+                
+
                 //verifing data in booking list
                 if (checkBox1.Checked)
                 {
+                    int clientInBookingCount = 0;
+
                     for (int i = 0; i < dataGridViewList.Rows.Count - 1; i++)
                     {
 
@@ -127,7 +133,23 @@ namespace Novotel
                         if (keyTableAdapter1.KeyActivity(key).Value)
                             throw new Exception($"Key: {key} is already active now");
 
+                        clientInBookingCount++;
                     }
+
+                    int? clientMaxInApart = queriesTableAdapter1.MaxCountInApartClass(comboBoxClass.Text);
+
+                    if (clientInBookingCount > clientMaxInApart.Value)
+                        throw new Exception($"Max client count in {comboBoxClass.Text} class apartaments is {clientMaxInApart.Value} people .");
+
+                    if (clientInBookingCount == 0 )
+                        throw new Exception("Please, add clients to booking");
+
+                    if (string.IsNullOrEmpty(textBoxRoom.Text))
+                        throw new Exception("Please, choose apartament");
+
+                    if (DateTime.Compare(dateFrom.Value , dateTo.Value) > 0)
+                        throw new Exception("Inccorect date period");
+
 
                     DateTime to = dateTo.Value;
                     DateTime from = dateFrom.Value;

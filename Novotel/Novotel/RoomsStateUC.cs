@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using System.Diagnostics;
 
 namespace Novotel
 {
@@ -75,6 +77,38 @@ namespace Novotel
 
 
 
+        }
+
+        private void buttonRefresh_Click(object sender, EventArgs e)
+        {
+            RoomsStateUC_Load(sender, e);
+        }
+
+        string fileName = "ApartState.txt";
+
+        //import to txt
+        private void buttonImport_Click(object sender, EventArgs e)
+        {
+            using(StreamWriter sw = new StreamWriter(fileName))
+            {
+                sw.WriteLine("==============CLOSED============== \n");
+
+                foreach (DataGridViewRow row in dataGridViewClosedRooms.Rows)
+                {
+                   if (row.Cells[0].Value != null)
+                    sw.WriteLine(row.Cells[0].Value.ToString());
+                }
+
+                sw.WriteLine("\n==============OPEN============== \n\n");
+
+                foreach (DataGridViewRow row in dataGridViewOpened.Rows)
+                {
+                    if (row.Cells[0].Value != null)
+                        sw.WriteLine(row.Cells[0].Value.ToString());
+                }     
+            }
+
+            Process.Start(fileName);
         }
     }
 }

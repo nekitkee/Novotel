@@ -7248,7 +7248,7 @@ WHERE (nf.apartament_id IS NULL)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.IDbCommand[7];
+            this._commandCollection = new global::System.Data.IDbCommand[10];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             ((global::System.Data.OleDb.OleDbCommand)(this._commandCollection[0])).Connection = new global::System.Data.OleDb.OleDbConnection(global::Novotel.Properties.Settings.Default.HotelDbConnectionString);
             ((global::System.Data.OleDb.OleDbCommand)(this._commandCollection[0])).CommandText = "SELECT TOP 1 PC\r\nFROM   clientBooking\r\nWHERE (key_id = ?)\r\nORDER BY booking_id DE" +
@@ -7293,6 +7293,26 @@ WHERE (apartament_id = ?) AND (checkin <= ?) AND (checkout >= ?) OR
             ((global::System.Data.OleDb.OleDbCommand)(this._commandCollection[6])).Parameters.Add(new global::System.Data.OleDb.OleDbParameter("apartament_id2", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "apartament_id", global::System.Data.DataRowVersion.Current, false, null));
             ((global::System.Data.OleDb.OleDbCommand)(this._commandCollection[6])).Parameters.Add(new global::System.Data.OleDb.OleDbParameter("checkout1", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "checkout", global::System.Data.DataRowVersion.Current, false, null));
             ((global::System.Data.OleDb.OleDbCommand)(this._commandCollection[6])).Parameters.Add(new global::System.Data.OleDb.OleDbParameter("checkout2", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "checkout", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[7] = new global::System.Data.OleDb.OleDbCommand();
+            ((global::System.Data.OleDb.OleDbCommand)(this._commandCollection[7])).Connection = new global::System.Data.OleDb.OleDbConnection(global::Novotel.Properties.Settings.Default.HotelDbConnectionString);
+            ((global::System.Data.OleDb.OleDbCommand)(this._commandCollection[7])).CommandText = "SELECT places\r\nFROM   class\r\nWHERE (id = ?)";
+            ((global::System.Data.OleDb.OleDbCommand)(this._commandCollection[7])).CommandType = global::System.Data.CommandType.Text;
+            ((global::System.Data.OleDb.OleDbCommand)(this._commandCollection[7])).Parameters.Add(new global::System.Data.OleDb.OleDbParameter("id", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "id", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[8] = new global::System.Data.OleDb.OleDbCommand();
+            ((global::System.Data.OleDb.OleDbCommand)(this._commandCollection[8])).Connection = new global::System.Data.OleDb.OleDbConnection(global::Novotel.Properties.Settings.Default.HotelDbConnectionString);
+            ((global::System.Data.OleDb.OleDbCommand)(this._commandCollection[8])).CommandText = @"SELECT COUNT(*) AS FreeApart
+FROM   (apartament LEFT OUTER JOIN
+                 (SELECT DISTINCT apartament_id
+                 FROM    booking
+                 WHERE (checkin <= ?) AND (checkout >= ?)) nf ON apartament.id = nf.apartament_id)
+WHERE (nf.apartament_id IS NULL)";
+            ((global::System.Data.OleDb.OleDbCommand)(this._commandCollection[8])).CommandType = global::System.Data.CommandType.Text;
+            ((global::System.Data.OleDb.OleDbCommand)(this._commandCollection[8])).Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Param1", global::System.Data.OleDb.OleDbType.DBDate, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "", global::System.Data.DataRowVersion.Current, false, null));
+            ((global::System.Data.OleDb.OleDbCommand)(this._commandCollection[8])).Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Param2", global::System.Data.OleDb.OleDbType.DBDate, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[9] = new global::System.Data.OleDb.OleDbCommand();
+            ((global::System.Data.OleDb.OleDbCommand)(this._commandCollection[9])).Connection = new global::System.Data.OleDb.OleDbConnection(global::Novotel.Properties.Settings.Default.HotelDbConnectionString);
+            ((global::System.Data.OleDb.OleDbCommand)(this._commandCollection[9])).CommandText = "SELECT COUNT(*) AS CountOfApartament\r\nFROM   apartament";
+            ((global::System.Data.OleDb.OleDbCommand)(this._commandCollection[9])).CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7534,6 +7554,108 @@ WHERE (apartament_id = ?) AND (checkin <= ?) AND (checkout >= ?) OR
             else {
                 command.Parameters[8].Value = global::System.DBNull.Value;
             }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return new global::System.Nullable<int>();
+            }
+            else {
+                return new global::System.Nullable<int>(((int)(returnValue)));
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual global::System.Nullable<int> MaxCountInApartClass(string id) {
+            global::System.Data.OleDb.OleDbCommand command = ((global::System.Data.OleDb.OleDbCommand)(this.CommandCollection[7]));
+            if ((id == null)) {
+                throw new global::System.ArgumentNullException("id");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(id));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return new global::System.Nullable<int>();
+            }
+            else {
+                return new global::System.Nullable<int>(((int)(returnValue)));
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual global::System.Nullable<int> CountOfFreeApart(global::System.Nullable<global::System.DateTime> Param1, global::System.Nullable<global::System.DateTime> Param2) {
+            global::System.Data.OleDb.OleDbCommand command = ((global::System.Data.OleDb.OleDbCommand)(this.CommandCollection[8]));
+            if ((Param1.HasValue == true)) {
+                command.Parameters[0].Value = ((System.DateTime)(Param1.Value));
+            }
+            else {
+                command.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((Param2.HasValue == true)) {
+                command.Parameters[1].Value = ((System.DateTime)(Param2.Value));
+            }
+            else {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return new global::System.Nullable<int>();
+            }
+            else {
+                return new global::System.Nullable<int>(((int)(returnValue)));
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual global::System.Nullable<int> CountOfApartament() {
+            global::System.Data.OleDb.OleDbCommand command = ((global::System.Data.OleDb.OleDbCommand)(this.CommandCollection[9]));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {

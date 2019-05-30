@@ -1,20 +1,13 @@
 TODO:
 
 
-###2.make statistic SQL quaries.
-
-###1.Add icons to buttons , and make icon for project.
-
-11.setup form
+###2.make statistic SQL quaries. (count of free apartaments , count of used , count of all )
+###11.setup form
 
 12. handle all exception //
 
-18.import open/closed as txt
 
 OPTIONAL:
-
-
-4.count max places when adding to booking list. 
 
 3.make new thread for pushup msg when adding to booking list.
 
@@ -24,9 +17,13 @@ OPTIONAL:
 
 
 
-17.upload set.txt of keys
+
 
 DONE:
+4.count max places when adding to booking list. 
+1.Add icons to buttons , and make icon for project.
+17.upload set.txt of keys
+18.import open/closed as txt
 16. verifing dates on changebooking ADVANTAGE SETTINGS and make Context menu (show person , delete , update)
 5.verifing pc and keys on MakebookingUC 
 14. client history

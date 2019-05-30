@@ -74,6 +74,7 @@
             this.buttonEdit = new System.Windows.Forms.Button();
             this.checkBoxVerify = new System.Windows.Forms.CheckBox();
             this.queriesTableAdapter1 = new Novotel.HotelDbDataSetTableAdapters.QueriesTableAdapter();
+            this.metroUserControl1 = new MetroFramework.Controls.MetroUserControl();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBooking)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookingBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelDbDataSet)).BeginInit();
@@ -210,6 +211,7 @@
             // 
             // groupBoxChangeBooking
             // 
+            this.groupBoxChangeBooking.Controls.Add(this.metroUserControl1);
             this.groupBoxChangeBooking.Controls.Add(this.buttonBookingSave);
             this.groupBoxChangeBooking.Controls.Add(this.dateTimePickerTo);
             this.groupBoxChangeBooking.Controls.Add(this.label1);
@@ -461,6 +463,14 @@
             this.checkBoxVerify.Text = "verify";
             this.checkBoxVerify.UseVisualStyleBackColor = true;
             // 
+            // metroUserControl1
+            // 
+            this.metroUserControl1.Location = new System.Drawing.Point(414, 172);
+            this.metroUserControl1.Name = "metroUserControl1";
+            this.metroUserControl1.Size = new System.Drawing.Size(8, 8);
+            this.metroUserControl1.TabIndex = 4;
+            this.metroUserControl1.UseSelectable = true;
+            // 
             // BookingList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -537,5 +547,6 @@
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.CheckBox checkBoxVerify;
         private HotelDbDataSetTableAdapters.QueriesTableAdapter queriesTableAdapter1;
+        private MetroFramework.Controls.MetroUserControl metroUserControl1;
     }
 }

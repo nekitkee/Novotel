@@ -30,37 +30,37 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridViewClosedRooms = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.classidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.apartamentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.hotelDbDataSet = new Novotel.HotelDbDataSet();
             this.apartamentTableAdapter = new Novotel.HotelDbDataSetTableAdapters.apartamentTableAdapter();
             this.dataGridViewOpened = new System.Windows.Forms.DataGridView();
-            this.lockHistoryTableAdapter1 = new Novotel.HotelDbDataSetTableAdapters.lockHistoryTableAdapter();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.classidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBoxClosed = new System.Windows.Forms.GroupBox();
-            this.groupBoxOpen = new System.Windows.Forms.GroupBox();
-            this.apartamentBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.classidDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apartamentBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.lockHistoryTableAdapter1 = new Novotel.HotelDbDataSetTableAdapters.lockHistoryTableAdapter();
+            this.groupBoxClosed = new System.Windows.Forms.GroupBox();
+            this.groupBoxOpen = new System.Windows.Forms.GroupBox();
             this.buttonImport = new System.Windows.Forms.Button();
-            this.buttonRefresh = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.labelKey = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.labelHolder = new System.Windows.Forms.Label();
             this.labelTime = new System.Windows.Forms.Label();
+            this.labelHolder = new System.Windows.Forms.Label();
+            this.labelKey = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.clientBookingTableAdapter1 = new Novotel.HotelDbDataSetTableAdapters.clientBookingTableAdapter();
             this.queriesTableAdapter1 = new Novotel.HotelDbDataSetTableAdapters.QueriesTableAdapter();
             this.clientTableAdapter1 = new Novotel.HotelDbDataSetTableAdapters.clientTableAdapter();
+            this.buttonRefresh = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClosedRooms)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.apartamentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelDbDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOpened)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.apartamentBindingSource1)).BeginInit();
             this.groupBoxClosed.SuspendLayout();
             this.groupBoxOpen.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.apartamentBindingSource1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -81,6 +81,18 @@
             this.dataGridViewClosedRooms.Size = new System.Drawing.Size(403, 535);
             this.dataGridViewClosedRooms.TabIndex = 0;
             this.dataGridViewClosedRooms.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewClosedRooms_CellEnter);
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            // 
+            // classidDataGridViewTextBoxColumn
+            // 
+            this.classidDataGridViewTextBoxColumn.DataPropertyName = "class_id";
+            this.classidDataGridViewTextBoxColumn.HeaderText = "class";
+            this.classidDataGridViewTextBoxColumn.Name = "classidDataGridViewTextBoxColumn";
             // 
             // apartamentBindingSource
             // 
@@ -112,21 +124,26 @@
             this.dataGridViewOpened.Size = new System.Drawing.Size(403, 535);
             this.dataGridViewOpened.TabIndex = 0;
             // 
+            // idDataGridViewTextBoxColumn1
+            // 
+            this.idDataGridViewTextBoxColumn1.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn1.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
+            // 
+            // classidDataGridViewTextBoxColumn1
+            // 
+            this.classidDataGridViewTextBoxColumn1.DataPropertyName = "class_id";
+            this.classidDataGridViewTextBoxColumn1.HeaderText = "class";
+            this.classidDataGridViewTextBoxColumn1.Name = "classidDataGridViewTextBoxColumn1";
+            // 
+            // apartamentBindingSource1
+            // 
+            this.apartamentBindingSource1.DataMember = "apartament";
+            this.apartamentBindingSource1.DataSource = this.hotelDbDataSet;
+            // 
             // lockHistoryTableAdapter1
             // 
             this.lockHistoryTableAdapter1.ClearBeforeFill = true;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            // 
-            // classidDataGridViewTextBoxColumn
-            // 
-            this.classidDataGridViewTextBoxColumn.DataPropertyName = "class_id";
-            this.classidDataGridViewTextBoxColumn.HeaderText = "class";
-            this.classidDataGridViewTextBoxColumn.Name = "classidDataGridViewTextBoxColumn";
             // 
             // groupBoxClosed
             // 
@@ -148,40 +165,15 @@
             this.groupBoxOpen.TabStop = false;
             this.groupBoxOpen.Text = "Open apartaments";
             // 
-            // apartamentBindingSource1
-            // 
-            this.apartamentBindingSource1.DataMember = "apartament";
-            this.apartamentBindingSource1.DataSource = this.hotelDbDataSet;
-            // 
-            // idDataGridViewTextBoxColumn1
-            // 
-            this.idDataGridViewTextBoxColumn1.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn1.HeaderText = "id";
-            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
-            // 
-            // classidDataGridViewTextBoxColumn1
-            // 
-            this.classidDataGridViewTextBoxColumn1.DataPropertyName = "class_id";
-            this.classidDataGridViewTextBoxColumn1.HeaderText = "class";
-            this.classidDataGridViewTextBoxColumn1.Name = "classidDataGridViewTextBoxColumn1";
-            // 
             // buttonImport
             // 
-            this.buttonImport.Location = new System.Drawing.Point(520, 604);
+            this.buttonImport.Location = new System.Drawing.Point(527, 406);
             this.buttonImport.Name = "buttonImport";
             this.buttonImport.Size = new System.Drawing.Size(100, 31);
             this.buttonImport.TabIndex = 3;
             this.buttonImport.Text = "import .txt";
             this.buttonImport.UseVisualStyleBackColor = true;
-            // 
-            // buttonRefresh
-            // 
-            this.buttonRefresh.Location = new System.Drawing.Point(665, 604);
-            this.buttonRefresh.Name = "buttonRefresh";
-            this.buttonRefresh.Size = new System.Drawing.Size(100, 31);
-            this.buttonRefresh.TabIndex = 3;
-            this.buttonRefresh.Text = "refresh";
-            this.buttonRefresh.UseVisualStyleBackColor = true;
+            this.buttonImport.Click += new System.EventHandler(this.buttonImport_Click);
             // 
             // groupBox1
             // 
@@ -193,64 +185,67 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(491, 35);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(336, 389);
+            this.groupBox1.Size = new System.Drawing.Size(336, 342);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Particular Info";
             // 
-            // label1
+            // labelTime
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(29, 50);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(107, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Last used key";
-            // 
-            // labelKey
-            // 
-            this.labelKey.AutoSize = true;
-            this.labelKey.Location = new System.Drawing.Point(57, 87);
-            this.labelKey.Name = "labelKey";
-            this.labelKey.Size = new System.Drawing.Size(14, 20);
-            this.labelKey.TabIndex = 0;
-            this.labelKey.Text = "-";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(25, 125);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(83, 20);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Key holder";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(29, 209);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(43, 20);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Time";
+            this.labelTime.AutoSize = true;
+            this.labelTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.labelTime.Location = new System.Drawing.Point(66, 276);
+            this.labelTime.Name = "labelTime";
+            this.labelTime.Size = new System.Drawing.Size(14, 20);
+            this.labelTime.TabIndex = 0;
+            this.labelTime.Text = "-";
             // 
             // labelHolder
             // 
             this.labelHolder.AutoSize = true;
-            this.labelHolder.Location = new System.Drawing.Point(57, 170);
+            this.labelHolder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.labelHolder.Location = new System.Drawing.Point(66, 194);
             this.labelHolder.Name = "labelHolder";
             this.labelHolder.Size = new System.Drawing.Size(14, 20);
             this.labelHolder.TabIndex = 0;
             this.labelHolder.Text = "-";
             // 
-            // labelTime
+            // labelKey
             // 
-            this.labelTime.AutoSize = true;
-            this.labelTime.Location = new System.Drawing.Point(57, 258);
-            this.labelTime.Name = "labelTime";
-            this.labelTime.Size = new System.Drawing.Size(14, 20);
-            this.labelTime.TabIndex = 0;
-            this.labelTime.Text = "-";
+            this.labelKey.AutoSize = true;
+            this.labelKey.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.labelKey.Location = new System.Drawing.Point(66, 112);
+            this.labelKey.Name = "labelKey";
+            this.labelKey.Size = new System.Drawing.Size(14, 20);
+            this.labelKey.TabIndex = 0;
+            this.labelKey.Text = "-";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(66, 235);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(47, 20);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Time:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(66, 153);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(87, 20);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Key holder:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(66, 71);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(111, 20);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Last used key:";
             // 
             // clientBookingTableAdapter1
             // 
@@ -259,6 +254,16 @@
             // clientTableAdapter1
             // 
             this.clientTableAdapter1.ClearBeforeFill = true;
+            // 
+            // buttonRefresh
+            // 
+            this.buttonRefresh.Image = global::Novotel.Properties.Resources.Refresh_icon;
+            this.buttonRefresh.Location = new System.Drawing.Point(684, 406);
+            this.buttonRefresh.Name = "buttonRefresh";
+            this.buttonRefresh.Size = new System.Drawing.Size(96, 31);
+            this.buttonRefresh.TabIndex = 3;
+            this.buttonRefresh.UseVisualStyleBackColor = true;
+            this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
             // 
             // RoomsStateUC
             // 
@@ -276,9 +281,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.apartamentBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelDbDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOpened)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.apartamentBindingSource1)).EndInit();
             this.groupBoxClosed.ResumeLayout(false);
             this.groupBoxOpen.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.apartamentBindingSource1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

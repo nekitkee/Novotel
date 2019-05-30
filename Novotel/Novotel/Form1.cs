@@ -48,11 +48,6 @@ namespace Novotel
 
         }
 
-        private void keysToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            keysUC1.BringToFront();
-        }
-
         private void listAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
             bookingList1.BringToFront();
@@ -82,6 +77,11 @@ namespace Novotel
         private void numbersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             statisticUC1.BringToFront();
+        }
+
+        private void keyListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            keysUC1.BringToFront();
         }
     }
 }
