@@ -46,7 +46,6 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contactsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.apartamentTableAdapter1 = new Novotel.HotelDbDataSetTableAdapters.apartamentTableAdapter();
             this.clientList1 = new Novotel.ClientList();
             this.makeBooking11 = new Novotel.MakeBooking1();
             this.bookingList1 = new Novotel.BookingList();
@@ -55,6 +54,7 @@
             this.clientHistoryUC1 = new Novotel.ClientHistoryUC();
             this.roomsStateUC1 = new Novotel.RoomsStateUC();
             this.statisticUC1 = new Novotel.StatisticUC();
+            this.apartamentTableAdapter1 = new Novotel.HotelDbDataSetTableAdapters.apartamentTableAdapter();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -88,14 +88,14 @@
             // clientListToolStripMenuItem
             // 
             this.clientListToolStripMenuItem.Name = "clientListToolStripMenuItem";
-            this.clientListToolStripMenuItem.Size = new System.Drawing.Size(199, 30);
+            this.clientListToolStripMenuItem.Size = new System.Drawing.Size(210, 30);
             this.clientListToolStripMenuItem.Text = "Client list";
             this.clientListToolStripMenuItem.Click += new System.EventHandler(this.clientListToolStripMenuItem_Click);
             // 
             // clientHistoryToolStripMenuItem
             // 
             this.clientHistoryToolStripMenuItem.Name = "clientHistoryToolStripMenuItem";
-            this.clientHistoryToolStripMenuItem.Size = new System.Drawing.Size(199, 30);
+            this.clientHistoryToolStripMenuItem.Size = new System.Drawing.Size(210, 30);
             this.clientHistoryToolStripMenuItem.Text = "Client history";
             this.clientHistoryToolStripMenuItem.Click += new System.EventHandler(this.clientHistoryToolStripMenuItem_Click);
             // 
@@ -111,15 +111,15 @@
             // makeBookingToolStripMenuItem
             // 
             this.makeBookingToolStripMenuItem.Name = "makeBookingToolStripMenuItem";
-            this.makeBookingToolStripMenuItem.Size = new System.Drawing.Size(231, 30);
+            this.makeBookingToolStripMenuItem.Size = new System.Drawing.Size(211, 30);
             this.makeBookingToolStripMenuItem.Text = "Make booking";
             this.makeBookingToolStripMenuItem.Click += new System.EventHandler(this.makeBookingToolStripMenuItem_Click_1);
             // 
             // bookingListToolStripMenuItem
             // 
             this.bookingListToolStripMenuItem.Name = "bookingListToolStripMenuItem";
-            this.bookingListToolStripMenuItem.Size = new System.Drawing.Size(231, 30);
-            this.bookingListToolStripMenuItem.Text = "Booking list /edit";
+            this.bookingListToolStripMenuItem.Size = new System.Drawing.Size(211, 30);
+            this.bookingListToolStripMenuItem.Text = "Booking list";
             this.bookingListToolStripMenuItem.Click += new System.EventHandler(this.bookingListToolStripMenuItem_Click);
             // 
             // roomsToolStripMenuItem
@@ -134,14 +134,14 @@
             // apartamnetsListToolStripMenuItem
             // 
             this.apartamnetsListToolStripMenuItem.Name = "apartamnetsListToolStripMenuItem";
-            this.apartamnetsListToolStripMenuItem.Size = new System.Drawing.Size(198, 30);
-            this.apartamnetsListToolStripMenuItem.Text = "List";
+            this.apartamnetsListToolStripMenuItem.Size = new System.Drawing.Size(217, 30);
+            this.apartamnetsListToolStripMenuItem.Text = "Apartament list";
             this.apartamnetsListToolStripMenuItem.Click += new System.EventHandler(this.apartamnetsListToolStripMenuItem_Click);
             // 
             // openclosedToolStripMenuItem
             // 
             this.openclosedToolStripMenuItem.Name = "openclosedToolStripMenuItem";
-            this.openclosedToolStripMenuItem.Size = new System.Drawing.Size(198, 30);
+            this.openclosedToolStripMenuItem.Size = new System.Drawing.Size(217, 30);
             this.openclosedToolStripMenuItem.Text = "Open/closed";
             this.openclosedToolStripMenuItem.Click += new System.EventHandler(this.openclosedToolStripMenuItem_Click);
             // 
@@ -156,7 +156,7 @@
             // keyListToolStripMenuItem
             // 
             this.keyListToolStripMenuItem.Name = "keyListToolStripMenuItem";
-            this.keyListToolStripMenuItem.Size = new System.Drawing.Size(151, 30);
+            this.keyListToolStripMenuItem.Size = new System.Drawing.Size(210, 30);
             this.keyListToolStripMenuItem.Text = "Key list";
             this.keyListToolStripMenuItem.Click += new System.EventHandler(this.keyListToolStripMenuItem_Click);
             // 
@@ -171,7 +171,7 @@
             // numbersToolStripMenuItem
             // 
             this.numbersToolStripMenuItem.Name = "numbersToolStripMenuItem";
-            this.numbersToolStripMenuItem.Size = new System.Drawing.Size(169, 30);
+            this.numbersToolStripMenuItem.Size = new System.Drawing.Size(210, 30);
             this.numbersToolStripMenuItem.Text = "Numbers";
             this.numbersToolStripMenuItem.Click += new System.EventHandler(this.numbersToolStripMenuItem_Click);
             // 
@@ -187,19 +187,15 @@
             // manualToolStripMenuItem
             // 
             this.manualToolStripMenuItem.Name = "manualToolStripMenuItem";
-            this.manualToolStripMenuItem.Size = new System.Drawing.Size(162, 30);
+            this.manualToolStripMenuItem.Size = new System.Drawing.Size(210, 30);
             this.manualToolStripMenuItem.Text = "manual";
             // 
             // contactsToolStripMenuItem
             // 
             this.contactsToolStripMenuItem.Name = "contactsToolStripMenuItem";
-            this.contactsToolStripMenuItem.Size = new System.Drawing.Size(162, 30);
+            this.contactsToolStripMenuItem.Size = new System.Drawing.Size(210, 30);
             this.contactsToolStripMenuItem.Text = "contacts";
             this.contactsToolStripMenuItem.Click += new System.EventHandler(this.contactsToolStripMenuItem_Click);
-            // 
-            // apartamentTableAdapter1
-            // 
-            this.apartamentTableAdapter1.ClearBeforeFill = true;
             // 
             // clientList1
             // 
@@ -259,6 +255,10 @@
             this.statisticUC1.Name = "statisticUC1";
             this.statisticUC1.Size = new System.Drawing.Size(1320, 660);
             this.statisticUC1.TabIndex = 8;
+            // 
+            // apartamentTableAdapter1
+            // 
+            this.apartamentTableAdapter1.ClearBeforeFill = true;
             // 
             // MainForm
             // 

@@ -3,6 +3,10 @@ TODO:
 
 ###2.make statistic SQL quaries. (count of free apartaments , count of used , count of all )
 ###11.setup form
+better verification on BookingList
+
+price > 0 
+checkin > date now 
 
 12. handle all exception //
 

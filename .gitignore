@@ -1,3 +1,5 @@
 Novotel/Novotel/bin/
 Novotel/Novotel/obj/
-!Novotel/Novotel/bin/Debug/HotelDb.mdb       
+Novotel/.vs
+!Novotel/Novotel/bin/Debug/HotelDb.mdb
+!Novotel/Novotel/obj/icons    
