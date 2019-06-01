@@ -120,23 +120,27 @@ namespace Novotel
         ///search 
         private void textBoxSearch_TextChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(textBoxSearch.Text))
+            try
             {
-                this.keyTableAdapter.Fill(this.hotelDbDataSet.key);
-                keyBindingSource.DataSource = this.hotelDbDataSet.key;
+                if (string.IsNullOrEmpty(textBoxSearch.Text))
+                {
+                    this.keyTableAdapter.Fill(this.hotelDbDataSet.key);
+                    keyBindingSource.DataSource = this.hotelDbDataSet.key;
 
+                }
+                else
+                {
+                    var query = from o in this.hotelDbDataSet.key
+                                where o.id.ToString().ToLower().Contains(textBoxSearch.Text.ToLower())
+                                || o.apartament_id.ToString().ToLower().Contains(textBoxSearch.Text.ToLower())
+                                select o;
+
+                    keyBindingSource.DataSource = query.ToList();
+
+                }
             }
-            else
-            {
-                var query = from o in this.hotelDbDataSet.key
-                            where o.id.ToString().ToLower().Contains(textBoxSearch.Text.ToLower())
-                            || o.apartament_id.ToString().ToLower().Contains(textBoxSearch.Text.ToLower())
-                            select o;
-
-                keyBindingSource.DataSource = query.ToList();
-
-            }
-        }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+}
 
         //search all
         private void buttonAll_Click(object sender, EventArgs e)
@@ -161,14 +165,17 @@ namespace Novotel
         private void buttonChooseFile(object sender, EventArgs e)
         {
             //dialog 
-
-            OpenFileDialog ofd = new OpenFileDialog();
-
-            if (ofd.ShowDialog() == DialogResult.OK)
+            try
             {
-                textBoxFileName.Text = ofd.FileName;
+                OpenFileDialog ofd = new OpenFileDialog();
+
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    textBoxFileName.Text = ofd.FileName;
+                }
             }
-        }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+}
 
         private void buttonLoad_Click(object sender, EventArgs e)
         {

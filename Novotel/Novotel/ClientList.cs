@@ -116,22 +116,22 @@ namespace Novotel
         //find clients 
         private void textBoxSearch_TextChanged(object sender, EventArgs e)
         {
-            //without this rises error ...
-            dataGridViewClients.ClearSelection();
-            dataGridViewClients.Update();
-            //dataGridViewClients.se
+            try { 
+                dataGridViewClients.ClearSelection();
+                dataGridViewClients.Update();
+                //dataGridViewClients.se
 
-            if (string.IsNullOrEmpty(textBoxSearch.Text))
-            {
-                this.clientTableAdapter.Fill(this.hotelDbDataSet.client);
-                clientBindingSource.DataSource = this.hotelDbDataSet.client;
+                if (string.IsNullOrEmpty(textBoxSearch.Text))
+                {
+                     this.clientTableAdapter.Fill(this.hotelDbDataSet.client);
+                    clientBindingSource.DataSource = this.hotelDbDataSet.client;
 
-            }
-            else
-            {
+                }
+                else
+                {
                 //SQL search
-                string searchParam = textBoxSearch.Text;
-                this.clientTableAdapter.FindAndFill(hotelDbDataSet.client, searchParam, searchParam, searchParam);
+                    string searchParam = textBoxSearch.Text;
+                    this.clientTableAdapter.FindAndFill(hotelDbDataSet.client, searchParam, searchParam, searchParam);
 
                 //LINQ search
 
@@ -143,7 +143,9 @@ namespace Novotel
 
                 //clientBindingSource.DataSource = query.ToList();
 
+                 }
             }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         //edit start
@@ -200,18 +202,23 @@ namespace Novotel
         //starting process for NEW CLIENT adding to DB
         private void buttonNew_Click(object sender, EventArgs e)
         {
+            try
+            {
 
-            clientBindingSource.AddNew();
-            clientBindingSource.MoveLast();
+                clientBindingSource.AddNew();
+                clientBindingSource.MoveLast();
 
 
-            dataGridViewClients.Enabled = false;
-            addingNew = true;
-            groupBoxPerson.Enabled = true;
-            textBoxFirstName.Clear();
-            textBoxLastName.Clear();
-            textBoxPC.Clear();
-            textBoxFirstName.Focus();
+                dataGridViewClients.Enabled = false;
+                addingNew = true;
+                groupBoxPerson.Enabled = true;
+                textBoxFirstName.Clear();
+                textBoxLastName.Clear();
+                textBoxPC.Clear();
+                textBoxFirstName.Focus();
+
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
        
@@ -223,47 +230,55 @@ namespace Novotel
         {
             //TODO : select cell 
 
-            if (e.Button == MouseButtons.Right)
+
+            try
             {
-                
-                currentMouseOverRow = dataGridViewClients.HitTest(e.X, e.Y).RowIndex;
-
-                if (currentMouseOverRow >= 0)
+                if (e.Button == MouseButtons.Right)
                 {
-                    ContextMenuStrip m = new ContextMenuStrip();
-                    m.Items.Add("add to booking").Name = "Add";
-                    m.Show(dataGridViewClients, new Point(e.X, e.Y));
-                    m.ItemClicked += M_ItemClicked;
+
+                    currentMouseOverRow = dataGridViewClients.HitTest(e.X, e.Y).RowIndex;
+
+                    if (currentMouseOverRow >= 0)
+                    {
+                        ContextMenuStrip m = new ContextMenuStrip();
+                        m.Items.Add("add to booking").Name = "Add";
+                        m.Show(dataGridViewClients, new Point(e.X, e.Y));
+                        m.ItemClicked += M_ItemClicked;
+                    }
+
+
+
                 }
-
-                
-
             }
-        }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+}
 
         //context menu CLICK on "add client to booklist"
         private void M_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-
-
-            string personalCode = dataGridViewClients.Rows[currentMouseOverRow].Cells[0].Value.ToString();
-            
-            //TODO new tread for label
-
-            //result
-            if (AddClientToBookingEvent(personalCode))
+            try
             {
-                labelClientAddResult.Text = dataGridViewClients.Rows[currentMouseOverRow].Cells[1].Value.ToString() + " " +
-                    dataGridViewClients.Rows[currentMouseOverRow].Cells[2].Value.ToString() + " added succesfuly";
-                labelClientAddResult.ForeColor = Color.Green;
-                labelClientAddResult.Visible = true;
-            }
-            else
-            {
-                labelClientAddResult.Text = "Error/Booking list is full";
-                labelClientAddResult.ForeColor = Color.Red;
-            }
 
-        }
+                string personalCode = dataGridViewClients.Rows[currentMouseOverRow].Cells[0].Value.ToString();
+
+                //TODO new tread for label
+
+                //result
+                if (AddClientToBookingEvent(personalCode))
+                {
+                    labelClientAddResult.Text = dataGridViewClients.Rows[currentMouseOverRow].Cells[1].Value.ToString() + " " +
+                        dataGridViewClients.Rows[currentMouseOverRow].Cells[2].Value.ToString() + " added succesfuly";
+                    labelClientAddResult.ForeColor = Color.Green;
+                    labelClientAddResult.Visible = true;
+                }
+                else
+                {
+                    labelClientAddResult.Text = "Error/Booking list is full";
+                    labelClientAddResult.ForeColor = Color.Red;
+                }
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+
+}
     }
 }

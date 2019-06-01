@@ -89,26 +89,30 @@ namespace Novotel
         //import to txt
         private void buttonImport_Click(object sender, EventArgs e)
         {
-            using(StreamWriter sw = new StreamWriter(fileName))
+            try
             {
-                sw.WriteLine("==============CLOSED============== \n");
-
-                foreach (DataGridViewRow row in dataGridViewClosedRooms.Rows)
+                using (StreamWriter sw = new StreamWriter(fileName))
                 {
-                   if (row.Cells[0].Value != null)
-                    sw.WriteLine(row.Cells[0].Value.ToString());
+                    sw.WriteLine("==============CLOSED============== \n");
+
+                    foreach (DataGridViewRow row in dataGridViewClosedRooms.Rows)
+                    {
+                        if (row.Cells[0].Value != null)
+                            sw.WriteLine(row.Cells[0].Value.ToString());
+                    }
+
+                    sw.WriteLine("\n==============OPEN============== \n\n");
+
+                    foreach (DataGridViewRow row in dataGridViewOpened.Rows)
+                    {
+                        if (row.Cells[0].Value != null)
+                            sw.WriteLine(row.Cells[0].Value.ToString());
+                    }
                 }
 
-                sw.WriteLine("\n==============OPEN============== \n\n");
-
-                foreach (DataGridViewRow row in dataGridViewOpened.Rows)
-                {
-                    if (row.Cells[0].Value != null)
-                        sw.WriteLine(row.Cells[0].Value.ToString());
-                }     
+                Process.Start(fileName);
             }
-
-            Process.Start(fileName);
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
     }
 }

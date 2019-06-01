@@ -30,9 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridViewKeys = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apartamentidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.activityDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.keyBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.hotelDbDataSet = new Novotel.HotelDbDataSet();
             this.keyTableAdapter = new Novotel.HotelDbDataSetTableAdapters.keyTableAdapter();
@@ -55,6 +52,9 @@
             this.buttonNew = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonEdit = new System.Windows.Forms.Button();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apartamentidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.activityDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewKeys)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelDbDataSet)).BeginInit();
@@ -82,27 +82,6 @@
             this.dataGridViewKeys.TabIndex = 0;
             this.dataGridViewKeys.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewKeys_CellEnter);
             this.dataGridViewKeys.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridViewKeys_DataError);
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // apartamentidDataGridViewTextBoxColumn
-            // 
-            this.apartamentidDataGridViewTextBoxColumn.DataPropertyName = "apartament_id";
-            this.apartamentidDataGridViewTextBoxColumn.HeaderText = "apartament";
-            this.apartamentidDataGridViewTextBoxColumn.Name = "apartamentidDataGridViewTextBoxColumn";
-            this.apartamentidDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // activityDataGridViewCheckBoxColumn
-            // 
-            this.activityDataGridViewCheckBoxColumn.DataPropertyName = "activity";
-            this.activityDataGridViewCheckBoxColumn.HeaderText = "activity";
-            this.activityDataGridViewCheckBoxColumn.Name = "activityDataGridViewCheckBoxColumn";
-            this.activityDataGridViewCheckBoxColumn.ReadOnly = true;
             // 
             // keyBindingSource
             // 
@@ -325,6 +304,27 @@
             this.buttonEdit.UseVisualStyleBackColor = true;
             this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
             // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // apartamentidDataGridViewTextBoxColumn
+            // 
+            this.apartamentidDataGridViewTextBoxColumn.DataPropertyName = "apartament_id";
+            this.apartamentidDataGridViewTextBoxColumn.HeaderText = "apartment";
+            this.apartamentidDataGridViewTextBoxColumn.Name = "apartamentidDataGridViewTextBoxColumn";
+            this.apartamentidDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // activityDataGridViewCheckBoxColumn
+            // 
+            this.activityDataGridViewCheckBoxColumn.DataPropertyName = "activity";
+            this.activityDataGridViewCheckBoxColumn.HeaderText = "activity";
+            this.activityDataGridViewCheckBoxColumn.Name = "activityDataGridViewCheckBoxColumn";
+            this.activityDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
             // KeysUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -361,9 +361,6 @@
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Label labelApartament;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn apartamentidDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn activityDataGridViewCheckBoxColumn;
         private System.Windows.Forms.Button buttonNew;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.GroupBox groupBoxSearch;
@@ -375,5 +372,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonLoad;
         private System.Windows.Forms.TextBox textBoxFileName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn apartamentidDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn activityDataGridViewCheckBoxColumn;
     }
 }

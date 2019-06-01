@@ -30,11 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridViewBooking = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.checkinDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.checkoutDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apartamentidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bookingBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.hotelDbDataSet = new Novotel.HotelDbDataSet();
             this.bookingTableAdapter = new Novotel.HotelDbDataSetTableAdapters.bookingTableAdapter();
@@ -74,7 +69,11 @@
             this.buttonEdit = new System.Windows.Forms.Button();
             this.checkBoxVerify = new System.Windows.Forms.CheckBox();
             this.queriesTableAdapter1 = new Novotel.HotelDbDataSetTableAdapters.QueriesTableAdapter();
-            this.metroUserControl1 = new MetroFramework.Controls.MetroUserControl();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.checkinDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.checkoutDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apartamentidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBooking)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookingBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelDbDataSet)).BeginInit();
@@ -106,36 +105,6 @@
             this.dataGridViewBooking.Size = new System.Drawing.Size(654, 348);
             this.dataGridViewBooking.TabIndex = 0;
             this.dataGridViewBooking.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBooking_CellEnter);
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            // 
-            // checkinDataGridViewTextBoxColumn
-            // 
-            this.checkinDataGridViewTextBoxColumn.DataPropertyName = "checkin";
-            this.checkinDataGridViewTextBoxColumn.HeaderText = "checkin";
-            this.checkinDataGridViewTextBoxColumn.Name = "checkinDataGridViewTextBoxColumn";
-            // 
-            // checkoutDataGridViewTextBoxColumn
-            // 
-            this.checkoutDataGridViewTextBoxColumn.DataPropertyName = "checkout";
-            this.checkoutDataGridViewTextBoxColumn.HeaderText = "checkout";
-            this.checkoutDataGridViewTextBoxColumn.Name = "checkoutDataGridViewTextBoxColumn";
-            // 
-            // priceDataGridViewTextBoxColumn
-            // 
-            this.priceDataGridViewTextBoxColumn.DataPropertyName = "price";
-            this.priceDataGridViewTextBoxColumn.HeaderText = "price";
-            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
-            // 
-            // apartamentidDataGridViewTextBoxColumn
-            // 
-            this.apartamentidDataGridViewTextBoxColumn.DataPropertyName = "apartament_id";
-            this.apartamentidDataGridViewTextBoxColumn.HeaderText = "apartament";
-            this.apartamentidDataGridViewTextBoxColumn.Name = "apartamentidDataGridViewTextBoxColumn";
             // 
             // bookingBindingSource
             // 
@@ -211,7 +180,6 @@
             // 
             // groupBoxChangeBooking
             // 
-            this.groupBoxChangeBooking.Controls.Add(this.metroUserControl1);
             this.groupBoxChangeBooking.Controls.Add(this.buttonBookingSave);
             this.groupBoxChangeBooking.Controls.Add(this.dateTimePickerTo);
             this.groupBoxChangeBooking.Controls.Add(this.label1);
@@ -320,9 +288,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(2, 92);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(91, 20);
+            this.label2.Size = new System.Drawing.Size(82, 20);
             this.label2.TabIndex = 1;
-            this.label2.Text = "apartament";
+            this.label2.Text = "apartment";
             // 
             // groupBoxBookingClients
             // 
@@ -463,13 +431,35 @@
             this.checkBoxVerify.Text = "verify";
             this.checkBoxVerify.UseVisualStyleBackColor = true;
             // 
-            // metroUserControl1
+            // idDataGridViewTextBoxColumn
             // 
-            this.metroUserControl1.Location = new System.Drawing.Point(414, 172);
-            this.metroUserControl1.Name = "metroUserControl1";
-            this.metroUserControl1.Size = new System.Drawing.Size(8, 8);
-            this.metroUserControl1.TabIndex = 4;
-            this.metroUserControl1.UseSelectable = true;
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            // 
+            // checkinDataGridViewTextBoxColumn
+            // 
+            this.checkinDataGridViewTextBoxColumn.DataPropertyName = "checkin";
+            this.checkinDataGridViewTextBoxColumn.HeaderText = "checkin";
+            this.checkinDataGridViewTextBoxColumn.Name = "checkinDataGridViewTextBoxColumn";
+            // 
+            // checkoutDataGridViewTextBoxColumn
+            // 
+            this.checkoutDataGridViewTextBoxColumn.DataPropertyName = "checkout";
+            this.checkoutDataGridViewTextBoxColumn.HeaderText = "checkout";
+            this.checkoutDataGridViewTextBoxColumn.Name = "checkoutDataGridViewTextBoxColumn";
+            // 
+            // priceDataGridViewTextBoxColumn
+            // 
+            this.priceDataGridViewTextBoxColumn.DataPropertyName = "price";
+            this.priceDataGridViewTextBoxColumn.HeaderText = "price";
+            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            // 
+            // apartamentidDataGridViewTextBoxColumn
+            // 
+            this.apartamentidDataGridViewTextBoxColumn.DataPropertyName = "apartament_id";
+            this.apartamentidDataGridViewTextBoxColumn.HeaderText = "apartment";
+            this.apartamentidDataGridViewTextBoxColumn.Name = "apartamentidDataGridViewTextBoxColumn";
             // 
             // BookingList
             // 
@@ -513,11 +503,6 @@
         private System.Windows.Forms.BindingSource clientBookingBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn pCDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn keyidDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn checkinDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn checkoutDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn apartamentidDataGridViewTextBoxColumn;
         private System.Windows.Forms.GroupBox groupBoxBookings;
         private System.Windows.Forms.TextBox textBoxBookingId;
         private System.Windows.Forms.Label label1;
@@ -547,6 +532,10 @@
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.CheckBox checkBoxVerify;
         private HotelDbDataSetTableAdapters.QueriesTableAdapter queriesTableAdapter1;
-        private MetroFramework.Controls.MetroUserControl metroUserControl1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn checkinDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn checkoutDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn apartamentidDataGridViewTextBoxColumn;
     }
 }

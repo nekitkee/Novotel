@@ -19,32 +19,39 @@ namespace Novotel
 
         private void RoomsUC_Load(object sender, EventArgs e)
         {
-            //fill tables
-            this.classTableAdapter.Fill(this.hotelDbDataSet._class);
-            classBindingSource.DataSource = this.hotelDbDataSet._class;
+            try
+            {
+                //fill tables
+                this.classTableAdapter.Fill(this.hotelDbDataSet._class);
+                classBindingSource.DataSource = this.hotelDbDataSet._class;
 
-            this.apartamentTableAdapter.Fill(this.hotelDbDataSet.apartament);
-            apartamentBindingSource.DataSource = this.hotelDbDataSet.apartament;
+                this.apartamentTableAdapter.Fill(this.hotelDbDataSet.apartament);
+                apartamentBindingSource.DataSource = this.hotelDbDataSet.apartament;
 
-            //hide start empty column on DataGridView
-            //dataGridViewAparts.RowHeadersVisible = false;
-            //dataGridViewClasses.RowHeadersVisible = false;
+                //hide start empty column on DataGridView
+                //dataGridViewAparts.RowHeadersVisible = false;
+                //dataGridViewClasses.RowHeadersVisible = false;
 
-            //disable multiselect
-            dataGridViewAparts.MultiSelect = false;
-            dataGridViewClasses.MultiSelect = false;
+                //disable multiselect
+                dataGridViewAparts.MultiSelect = false;
+                dataGridViewClasses.MultiSelect = false;
 
 
-            MakeEditingGroupboxesEnabled(false);
-            UpdateComboboxClass();
-
+                MakeEditingGroupboxesEnabled(false);
+                UpdateComboboxClass();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         //update combobox
         void UpdateComboboxClass()
         {
-            comboBoxClass.DataSource = classTableAdapter.GetAllClassesId();
-            comboBoxClass.DisplayMember = "id";
+            try
+            {
+                comboBoxClass.DataSource = classTableAdapter.GetAllClassesId();
+                comboBoxClass.DisplayMember = "id";
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
 
@@ -71,7 +78,7 @@ namespace Novotel
                 MakeEditingGroupboxesEnabled(false);
 
             }
-           catch(Exception ex) { }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         //cancel
@@ -142,12 +149,13 @@ namespace Novotel
                 DataGridViewCellCollection CellCol = dataGridViewAparts.CurrentRow.Cells;
                 textBoxApart.Text = CellCol[0].Value.ToString();
                 comboBoxClass.Text= CellCol[1].Value.ToString();
+                
 
                
             
 
             }
-            catch (Exception ex) { }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         ////on class DataGridView cell enter 
@@ -155,12 +163,13 @@ namespace Novotel
         {
             try
             {
-                DataGridViewCellCollection CellCol = dataGridViewAparts.CurrentRow.Cells;
+                DataGridViewCellCollection CellCol = dataGridViewClasses.CurrentRow.Cells;
                 textBox_class_class.Text = CellCol[0].Value.ToString();
                 textBox_class_places.Text = CellCol[1].Value.ToString();
                 textBox_class_price.Text = CellCol[2].Value.ToString();
                 textBox_class_rooms.Text = CellCol[3].Value.ToString();
-            }catch(Exception ex) { }
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
     }
 }

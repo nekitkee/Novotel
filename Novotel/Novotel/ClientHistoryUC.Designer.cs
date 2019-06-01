@@ -38,18 +38,18 @@
             this.clientTableAdapter = new Novotel.HotelDbDataSetTableAdapters.clientTableAdapter();
             this.groupBoxClientList = new System.Windows.Forms.GroupBox();
             this.groupBoxSearch = new System.Windows.Forms.GroupBox();
+            this.buttonSearch = new System.Windows.Forms.Button();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridViewBookings = new System.Windows.Forms.DataGridView();
+            this.bookingBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bookingTableAdapter = new Novotel.HotelDbDataSetTableAdapters.bookingTableAdapter();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.checkinDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.checkoutDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.apartamentidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bookingBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.bookingTableAdapter = new Novotel.HotelDbDataSetTableAdapters.bookingTableAdapter();
-            this.buttonSearch = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClients)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelDbDataSet)).BeginInit();
@@ -132,6 +132,18 @@
             this.groupBoxSearch.TabStop = false;
             this.groupBoxSearch.Text = "Search";
             // 
+            // buttonSearch
+            // 
+            this.buttonSearch.Image = global::Novotel.Properties.Resources.Search_icon;
+            this.buttonSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSearch.Location = new System.Drawing.Point(409, 32);
+            this.buttonSearch.Name = "buttonSearch";
+            this.buttonSearch.Size = new System.Drawing.Size(89, 36);
+            this.buttonSearch.TabIndex = 1;
+            this.buttonSearch.Text = " all";
+            this.buttonSearch.UseVisualStyleBackColor = true;
+            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
+            // 
             // textBoxSearch
             // 
             this.textBoxSearch.Location = new System.Drawing.Point(22, 37);
@@ -169,6 +181,15 @@
             this.dataGridViewBookings.Size = new System.Drawing.Size(666, 538);
             this.dataGridViewBookings.TabIndex = 0;
             // 
+            // bookingBindingSource
+            // 
+            this.bookingBindingSource.DataMember = "booking";
+            this.bookingBindingSource.DataSource = this.hotelDbDataSet;
+            // 
+            // bookingTableAdapter
+            // 
+            this.bookingTableAdapter.ClearBeforeFill = true;
+            // 
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
@@ -196,29 +217,8 @@
             // apartamentidDataGridViewTextBoxColumn
             // 
             this.apartamentidDataGridViewTextBoxColumn.DataPropertyName = "apartament_id";
-            this.apartamentidDataGridViewTextBoxColumn.HeaderText = "apartament_id";
+            this.apartamentidDataGridViewTextBoxColumn.HeaderText = "apartment";
             this.apartamentidDataGridViewTextBoxColumn.Name = "apartamentidDataGridViewTextBoxColumn";
-            // 
-            // bookingBindingSource
-            // 
-            this.bookingBindingSource.DataMember = "booking";
-            this.bookingBindingSource.DataSource = this.hotelDbDataSet;
-            // 
-            // bookingTableAdapter
-            // 
-            this.bookingTableAdapter.ClearBeforeFill = true;
-            // 
-            // buttonSearch
-            // 
-            this.buttonSearch.Image = global::Novotel.Properties.Resources.Search_icon;
-            this.buttonSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSearch.Location = new System.Drawing.Point(409, 32);
-            this.buttonSearch.Name = "buttonSearch";
-            this.buttonSearch.Size = new System.Drawing.Size(89, 36);
-            this.buttonSearch.TabIndex = 1;
-            this.buttonSearch.Text = " all";
-            this.buttonSearch.UseVisualStyleBackColor = true;
-            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
             // 
             // ClientHistoryUC
             // 
@@ -258,12 +258,12 @@
         private System.Windows.Forms.TextBox textBoxSearch;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dataGridViewBookings;
+        private System.Windows.Forms.BindingSource bookingBindingSource;
+        private HotelDbDataSetTableAdapters.bookingTableAdapter bookingTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn checkinDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn checkoutDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn apartamentidDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource bookingBindingSource;
-        private HotelDbDataSetTableAdapters.bookingTableAdapter bookingTableAdapter;
     }
 }

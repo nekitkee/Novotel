@@ -32,19 +32,22 @@ namespace Novotel
                 dateTimePickerFrom.Value = (DateTime)CellCol[1].Value;
                 dateTimePickerTo.Value = (DateTime)CellCol[2].Value;
 
-            }catch(Exception ex) { }
+            }catch(Exception ex) { MessageBox.Show(ex.Message); }
 
         }
 
         private void BookingList_Load(object sender, EventArgs e)
-        { 
-            //fill and bind
-            bookingTableAdapter.Fill(hotelDbDataSet.booking);
-            bookingBindingSource.DataSource = hotelDbDataSet.booking;
+        {
+            try
+            {
+                //fill and bind
+                bookingTableAdapter.Fill(hotelDbDataSet.booking);
+                bookingBindingSource.DataSource = hotelDbDataSet.booking;
 
-            clientBookingBindingSource.DataSource = hotelDbDataSet.clientBooking;
+                clientBookingBindingSource.DataSource = hotelDbDataSet.clientBooking;
 
-          
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
 
 
         }
@@ -52,12 +55,14 @@ namespace Novotel
         //on cell ENTER in client grid
         private void dataGridViewClientBooking_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewCellCollection CellCol = dataGridViewClientBooking.CurrentRow.Cells;
+            try
+            {
+                DataGridViewCellCollection CellCol = dataGridViewClientBooking.CurrentRow.Cells;
 
-            textBoxPC.Text = CellCol[0].Value.ToString();
-            textBoxKey.Text = CellCol[1].Value.ToString();
+                textBoxPC.Text = CellCol[0].Value.ToString();
+                textBoxKey.Text = CellCol[1].Value.ToString();
 
-
+            }catch(Exception ex) { MessageBox.Show(ex.Message); }
 
         }
 
@@ -161,7 +166,7 @@ namespace Novotel
                 groupBoxChangeBooking.Enabled = false;
 
             }
-            catch (Exception ex) { }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         //update booking info
@@ -181,7 +186,13 @@ namespace Novotel
                 int? intersec = queriesTableAdapter1.BookingIntersectionCount(bookingId, from, to, bookingId, from, to, bookingId, from, to);
                 if (intersec.Value != 0)
                     throw new Exception("Apartament is not free on this days");
-               
+
+                if (decimal.Parse(textBoxPrice.Text) < 0)
+                    throw new Exception("incorect price");
+
+                if (DateTime.Compare(dateTimePickerFrom.Value, dateTimePickerTo.Value) > 0)
+                    throw new Exception("Inccorect date period");
+
 
                 bookingTableAdapter.UpdateQuery(from, to, price, apartament, bookingId);
 

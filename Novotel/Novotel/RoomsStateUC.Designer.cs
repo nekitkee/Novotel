@@ -153,7 +153,7 @@
             this.groupBoxClosed.Size = new System.Drawing.Size(455, 601);
             this.groupBoxClosed.TabIndex = 1;
             this.groupBoxClosed.TabStop = false;
-            this.groupBoxClosed.Text = "Closed apartaments";
+            this.groupBoxClosed.Text = "Closed apartments";
             // 
             // groupBoxOpen
             // 
@@ -163,7 +163,7 @@
             this.groupBoxOpen.Size = new System.Drawing.Size(455, 601);
             this.groupBoxOpen.TabIndex = 2;
             this.groupBoxOpen.TabStop = false;
-            this.groupBoxOpen.Text = "Open apartaments";
+            this.groupBoxOpen.Text = "Open apartments";
             // 
             // buttonImport
             // 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -39,7 +40,7 @@ namespace Novotel
 
         private void contactsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Hello", "test", MessageBoxButtons.OK);
+            MessageBox.Show("EMAIL : nekitkee@gmail.com \n\nGITHUB: nekitkee");
         }
 
         private void openclosedToolStripMenuItem_Click(object sender, EventArgs e)
@@ -82,6 +83,15 @@ namespace Novotel
         private void keyListToolStripMenuItem_Click(object sender, EventArgs e)
         {
             keysUC1.BringToFront();
+        }
+
+        private void manualToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string path = @"""man\man.html""";
+                Process.Start(path);
+            }catch(Exception ex) { MessageBox.Show("MANUAL NOT FOUND"); }
         }
     }
 }

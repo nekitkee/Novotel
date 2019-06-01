@@ -30,8 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridViewAparts = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.classidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.apartamentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.hotelDbDataSet = new Novotel.HotelDbDataSet();
             this.dataGridViewClasses = new System.Windows.Forms.DataGridView();
@@ -52,9 +50,9 @@
             this.groupBoxAddClass = new System.Windows.Forms.GroupBox();
             this.buttonClassUpdate = new System.Windows.Forms.Button();
             this.textBox_class_price = new System.Windows.Forms.TextBox();
+            this.buttonAddClass = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.buttonAddClass = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.labelclass = new System.Windows.Forms.Label();
             this.textBox_class_rooms = new System.Windows.Forms.TextBox();
@@ -64,6 +62,8 @@
             this.buttonCancell = new System.Windows.Forms.Button();
             this.apartamentTableAdapter = new Novotel.HotelDbDataSetTableAdapters.apartamentTableAdapter();
             this.classTableAdapter = new Novotel.HotelDbDataSetTableAdapters.classTableAdapter();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.classidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAparts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.apartamentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelDbDataSet)).BeginInit();
@@ -86,23 +86,12 @@
             this.dataGridViewAparts.DataSource = this.apartamentBindingSource;
             this.dataGridViewAparts.Location = new System.Drawing.Point(18, 31);
             this.dataGridViewAparts.Name = "dataGridViewAparts";
+            this.dataGridViewAparts.ReadOnly = true;
             this.dataGridViewAparts.RowHeadersVisible = false;
             this.dataGridViewAparts.RowTemplate.Height = 28;
             this.dataGridViewAparts.Size = new System.Drawing.Size(279, 558);
             this.dataGridViewAparts.TabIndex = 0;
             this.dataGridViewAparts.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewAparts_CellEnter);
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "apartament";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            // 
-            // classidDataGridViewTextBoxColumn
-            // 
-            this.classidDataGridViewTextBoxColumn.DataPropertyName = "class_id";
-            this.classidDataGridViewTextBoxColumn.HeaderText = "class";
-            this.classidDataGridViewTextBoxColumn.Name = "classidDataGridViewTextBoxColumn";
             // 
             // apartamentBindingSource
             // 
@@ -127,6 +116,7 @@
             this.dataGridViewClasses.DataSource = this.classBindingSource;
             this.dataGridViewClasses.Location = new System.Drawing.Point(6, 30);
             this.dataGridViewClasses.Name = "dataGridViewClasses";
+            this.dataGridViewClasses.ReadOnly = true;
             this.dataGridViewClasses.RowHeadersVisible = false;
             this.dataGridViewClasses.RowTemplate.Height = 28;
             this.dataGridViewClasses.Size = new System.Drawing.Size(570, 323);
@@ -172,7 +162,7 @@
             this.groupBoxAparts.Size = new System.Drawing.Size(678, 610);
             this.groupBoxAparts.TabIndex = 3;
             this.groupBoxAparts.TabStop = false;
-            this.groupBoxAparts.Text = "Apartaments";
+            this.groupBoxAparts.Text = "Apartments";
             // 
             // groupBoxAddApart
             // 
@@ -194,9 +184,9 @@
             this.labelApart.AutoSize = true;
             this.labelApart.Location = new System.Drawing.Point(242, 95);
             this.labelApart.Name = "labelApart";
-            this.labelApart.Size = new System.Drawing.Size(72, 20);
+            this.labelApart.Size = new System.Drawing.Size(63, 20);
             this.labelApart.TabIndex = 4;
-            this.labelApart.Text = "apartam.";
+            this.labelApart.Text = "apartm.";
             // 
             // label4
             // 
@@ -295,6 +285,18 @@
             this.textBox_class_price.Size = new System.Drawing.Size(143, 26);
             this.textBox_class_price.TabIndex = 0;
             // 
+            // buttonAddClass
+            // 
+            this.buttonAddClass.Image = global::Novotel.Properties.Resources.add_icon__1_;
+            this.buttonAddClass.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonAddClass.Location = new System.Drawing.Point(299, 131);
+            this.buttonAddClass.Name = "buttonAddClass";
+            this.buttonAddClass.Size = new System.Drawing.Size(109, 33);
+            this.buttonAddClass.TabIndex = 2;
+            this.buttonAddClass.Text = "  add";
+            this.buttonAddClass.UseVisualStyleBackColor = true;
+            this.buttonAddClass.Click += new System.EventHandler(this.buttonAddClass_Click);
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -312,18 +314,6 @@
             this.label2.Size = new System.Drawing.Size(53, 20);
             this.label2.TabIndex = 4;
             this.label2.Text = "rooms";
-            // 
-            // buttonAddClass
-            // 
-            this.buttonAddClass.Image = global::Novotel.Properties.Resources.add_icon__1_;
-            this.buttonAddClass.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAddClass.Location = new System.Drawing.Point(299, 131);
-            this.buttonAddClass.Name = "buttonAddClass";
-            this.buttonAddClass.Size = new System.Drawing.Size(109, 33);
-            this.buttonAddClass.TabIndex = 2;
-            this.buttonAddClass.Text = "  add";
-            this.buttonAddClass.UseVisualStyleBackColor = true;
-            this.buttonAddClass.Click += new System.EventHandler(this.buttonAddClass_Click);
             // 
             // label1
             // 
@@ -396,6 +386,18 @@
             // 
             this.classTableAdapter.ClearBeforeFill = true;
             // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "apartment";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            // 
+            // classidDataGridViewTextBoxColumn
+            // 
+            this.classidDataGridViewTextBoxColumn.DataPropertyName = "class_id";
+            this.classidDataGridViewTextBoxColumn.HeaderText = "class";
+            this.classidDataGridViewTextBoxColumn.Name = "classidDataGridViewTextBoxColumn";
+            // 
             // RoomsUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -429,8 +431,6 @@
         private System.Windows.Forms.BindingSource apartamentBindingSource;
         private HotelDbDataSet hotelDbDataSet;
         private HotelDbDataSetTableAdapters.apartamentTableAdapter apartamentTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn classidDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridView dataGridViewClasses;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn placesDataGridViewTextBoxColumn;
@@ -460,5 +460,7 @@
         private System.Windows.Forms.Button buttonAddClass;
         private System.Windows.Forms.Button buttonClassUpdate;
         private System.Windows.Forms.Button buttonUpdateApart;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn classidDataGridViewTextBoxColumn;
     }
 }

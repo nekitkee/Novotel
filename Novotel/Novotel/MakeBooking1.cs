@@ -39,25 +39,29 @@ namespace Novotel
 
         private void ButtonSearch_Click(object sender, EventArgs e)
         {
-            
-            HotelDbDataSet.apartamentDataTable allfreerooms =  apartamentTableAdapter.GetDataByFreeRooms(
-                dateFrom.Value, dateTo.Value,
-                dateFrom.Value, dateTo.Value,
-                dateFrom.Value, dateTo.Value);
+            try
+            {
 
-            var query = from o in allfreerooms
-                        where o.class_id == comboBoxClass.Text
-                        select o;
-            DataView res = query.AsDataView();
+                HotelDbDataSet.apartamentDataTable allfreerooms = apartamentTableAdapter.GetDataByFreeRooms(
+                    dateFrom.Value, dateTo.Value,
+                    dateFrom.Value, dateTo.Value,
+                    dateFrom.Value, dateTo.Value);
 
-            dataGridViewFreeApart.DataSource = res;
-            dataGridViewFreeApart.Columns["class_id"].Visible = false;
-            dataGridViewFreeApart.Columns[0].HeaderCell.Value = "Room";
-            dataGridViewFreeApart.RowHeadersVisible = false;
-                
-           
+                var query = from o in allfreerooms
+                            where o.class_id == comboBoxClass.Text
+                            select o;
+                DataView res = query.AsDataView();
 
-        }
+                dataGridViewFreeApart.DataSource = res;
+                dataGridViewFreeApart.Columns["class_id"].Visible = false;
+                dataGridViewFreeApart.Columns[0].HeaderCell.Value = "Room";
+                dataGridViewFreeApart.RowHeadersVisible = false;
+
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+
+
+}
 
         //calculation of prise
         void CountPrice()
@@ -90,12 +94,20 @@ namespace Novotel
         //recalculate prise if date was changed
         private void dateTo_ValueChanged(object sender, EventArgs e)
         {
-            CountPrice();
-        }
+            try
+            {
+                CountPrice();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+}
 
         private void dateFrom_ValueChanged(object sender, EventArgs e)
         {
-            CountPrice();
+            try
+            {
+                CountPrice();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
 
@@ -149,6 +161,9 @@ namespace Novotel
 
                     if (DateTime.Compare(dateFrom.Value , dateTo.Value) > 0)
                         throw new Exception("Inccorect date period");
+
+                    if (decimal.Parse(textBoxPrice.Text) < 0)
+                        throw new Exception("incorect price");
 
 
                     DateTime to = dateTo.Value;
